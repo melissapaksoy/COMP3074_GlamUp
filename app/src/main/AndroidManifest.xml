@@ -9,22 +9,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GlamUp">
 
-        <!-- ProfileActivity (set as launcher for now) -->
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".BookingActivity" />
+
+        <!-- MainActivity is now the launcher -->
         <activity
-            android:name=".ProfileActivity"
+            android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.GlamUp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- BookingActivity -->
-        <activity
-            android:name=".BookingActivity"
-            android:exported="false" />
-
     </application>
+
 </manifest>
