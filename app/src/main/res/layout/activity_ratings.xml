@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/txtRatingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ratings &amp; Reviews"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingBottom="16dp" />
+
+    <!-- Placeholder for reviews -->
+    <TextView
+        android:id="@+id/txtReviewSample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⭐️⭐️⭐️⭐️☆ - Great service!"
+        android:paddingTop="8dp" />
+
+    <TextView
+        android:id="@+id/txtReviewSample2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⭐️⭐️⭐️⭐️⭐️ - Amazing experience, highly recommend!"
+        android:paddingTop="8dp" />
+
+    <!-- Later: Replace with RecyclerView or ListView for dynamic reviews -->
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1.0"
+        android:layout_marginTop="16dp" />
+
+
+    <EditText
+        android:id="@+id/edtReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Write your review here"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:gravity="top"
+        android:layout_marginTop="16dp" />
+
+
+    <Button
+        android:id="@+id/btnAddReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add a Review"
+        android:layout_marginTop="24dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous Reviews"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+
+    <TextView
+        android:id="@+id/txtReview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⭐️⭐️⭐️⭐️⭐️ - Excellent service! Highly recommend."
+        android:padding="8dp"
+        android:background="#EEEEEE"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/txtReview2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⭐️⭐️⭐️⭐️ - Good experience, but response time could improve."
+        android:padding="8dp"
+        android:background="#EEEEEE" />
+
+
+</LinearLayout>
