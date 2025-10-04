@@ -15,10 +15,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-                LoginScreen {
-                    // navigate to HomeActivity when login button clicked
-                    startActivity(Intent(this, HomeActivity::class.java))
-                }
+                // All dummy; just navigate when "Sign In" tapped
+                LoginScreen(
+                    onSignIn = { startActivity(Intent(this, HomeActivity::class.java)) },
+                    onGoogle = { /* no-op */ },
+                    onFacebook = { /* no-op */ },
+                    onForgot = { /* no-op */ },
+                    onSignUp = { /* no-op */ }
+                )
             }
         }
     }
