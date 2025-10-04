@@ -1,32 +1,274 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp">
+    android:background="#FFFFFF"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/txtWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to GlamUp!"
-        android:textSize="20sp"
-        android:layout_marginBottom="24dp" />
-
-    <!-- This Button must exist for btnViewProfile -->
-    <Button
-        android:id="@+id/btnViewProfile"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Professional Profile" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnViewDashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View Professional Dashboard"
-        android:layout_marginTop="12dp" />
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GlamUp!"
+            android:textStyle="bold"
+            android:textSize="26sp"
+            android:textColor="#111827"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
 
+        <!-- Search -->
+        <EditText
+            android:id="@+id/searchBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search by service or location"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
 
-</LinearLayout>
+        <!-- Filter row (equal width buttons) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btnFilter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Filters"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:paddingVertical="8dp" />
+
+            <Button
+                android:id="@+id/btnPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="$ Price"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:paddingVertical="8dp"
+                android:layout_marginStart="8dp" />
+
+            <Button
+                android:id="@+id/btnRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="★ Rating"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:paddingVertical="8dp"
+                android:layout_marginStart="8dp" />
+
+            <Button
+                android:id="@+id/btnAvailability"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Availability"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:paddingVertical="8dp"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Beauty Professionals"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="124 results" />
+        </LinearLayout>
+
+        <!-- Card 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F2F2F2"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@android:drawable/sym_def_app_icon"
+                android:layout_marginEnd="8dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sarah Johnson"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hair Stylist &amp; Colorist" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="From $85" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="★ 4.9"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/btnBook1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book" />
+        </LinearLayout>
+
+        <!-- Card 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F2F2F2"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@android:drawable/sym_def_app_icon"
+                android:layout_marginEnd="8dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maria Rodriguez"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nail Artist &amp; Manicurist" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="From $45" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="★ 4.8"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/btnBook2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book" />
+        </LinearLayout>
+
+        <!-- Card 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F2F2F2"
+            android:padding="12dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@android:drawable/sym_def_app_icon"
+                android:layout_marginEnd="8dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Emily Chen"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Makeup Artist &amp; Brow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="From $95" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="★ 5.0"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/btnBook3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
