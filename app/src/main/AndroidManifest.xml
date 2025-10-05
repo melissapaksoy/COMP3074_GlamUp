@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <!-- Launcher -->
+        <!-- Launcher / Login screen -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,25 +20,32 @@
             </intent-filter>
         </activity>
 
-        <!-- Your screen (#2) -->
+        <!-- Home screen -->
         <activity
             android:name=".HomeActivity"
             android:exported="true" />
+
+        <!-- Admin Panel screen -->
+        <activity
+            android:name=".admin.AdminActivity"
+            android:exported="false" />
 
         <!-- Teammates' screens -->
         <activity
             android:name=".BookingActivity"
             android:exported="false" />
+
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
+
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
+
         <activity
             android:name=".RatingsActivity"
             android:exported="false" />
 
     </application>
 </manifest>
-

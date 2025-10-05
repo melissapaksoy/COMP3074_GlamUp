@@ -1,37 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:fillViewport="true">
 
-    <EditText
-        android:id="@+id/edtEmail"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Password"
-        android:inputType="textPassword" />
+        <!-- Top bar title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="GlamUp!"
+            android:textAppearance="@android:style/TextAppearance.Material.Headline"
+            android:textStyle="bold"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp" />
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Login" />
+        <!-- Icon -->
+        <ImageView
+            android:id="@+id/imgClock"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:src="@android:drawable/ic_lock_idle_alarm"
+            android:tint="#9AA0A6" />
 
-    <Button
-        android:id="@+id/btnRatingsReviews"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ratings &amp; Reviews"
-        android:layout_marginTop="16dp" />
+        <!-- Headline -->
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Welcome to GlamUp!"
+            android:textAppearance="@android:style/TextAppearance.Material.Large"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <!-- Subheadline -->
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="Find beauty services near you —\nnails, lashes, makeup"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:lineSpacingExtra="2dp" />
+
+        <!-- Email -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Email"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Enter your email"
+            android:inputType="textEmailAddress"
+            android:drawableEnd="@android:drawable/ic_dialog_email"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@android:drawable/editbox_background_normal" />
+
+        <!-- Password -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Password"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Enter your password"
+            android:inputType="textPassword"
+            android:drawableEnd="@android:drawable/ic_menu_help"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@android:drawable/editbox_background_normal" />
+
+        <!-- Forgot password -->
+        <TextView
+            android:id="@+id/tvForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:text="Forgot password?"
+            android:textColor="#5F6368" />
+
+        <!-- Sign In -->
+        <Button
+            android:id="@+id/btnAdminLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Admin Login"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnBeautyProLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="BeautyPro Login"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnClientLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Client Login"
+            android:textAllCaps="false" />
+
+
+        <!-- Divider with 'or' -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="6dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#E0E0E0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:text="or"
+                android:textColor="#9AA0A6" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#E0E0E0" />
+        </LinearLayout>
+
+        <!-- Continue with Google -->
+        <Button
+            android:id="@+id/btnGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="  Continue with Google"
+            android:textAllCaps="false" />
+
+        <!-- Continue with Facebook -->
+        <Button
+            android:id="@+id/btnFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:text="  Continue with Facebook"
+            android:textAllCaps="false" />
+
+        <!-- Bottom sign up -->
+        <TextView
+            android:id="@+id/tvSignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="18dp"
+            android:text="Don't have an account? Sign up"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textColor="#5F6368" />
+
+    </LinearLayout>
+</ScrollView>

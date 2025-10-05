@@ -2,62 +2,46 @@ package com.example.glamup
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.example.glamup.admin.AdminActivity
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            MaterialTheme {
-                LoginScreen {
-                    // navigate to HomeActivity when login button clicked
-                    startActivity(Intent(this, HomeActivity::class.java))
-                }
+        setContentView(R.layout.activity_main)
+
+        // Original buttons (dummy)
+        val goHome = { startActivity(Intent(this, HomeActivity::class.java)) }
+        findViewById<Button>(R.id.btnAdminLogin).setOnClickListener {
+            goHome()
+            findViewById<Button>(R.id.btnBeautyProLogin).setOnClickListener { goHome() }
+            findViewById<Button>(R.id.btnClientLogin).setOnClickListener { goHome() }
+            findViewById<Button>(R.id.btnGoogle).setOnClickListener { goHome() }
+            findViewById<Button>(R.id.btnFacebook).setOnClickListener { goHome() }
+
+            findViewById<TextView>(R.id.tvForgot).setOnClickListener { goHome() }
+            findViewById<TextView>(R.id.tvSignup).setOnClickListener { goHome() }
+
+            // === NEW LOGIN TYPE BUTTONS ===
+            val btnAdmin = findViewById<Button>(R.id.btnAdminLogin)
+            val btnBeautyPro = findViewById<Button>(R.id.btnBeautyProLogin)
+            val btnClient = findViewById<Button>(R.id.btnClientLogin)
+
+            // Navigation for each
+            btnAdmin.setOnClickListener {
+                startActivity(Intent(this, AdminActivity::class.java))
             }
-        }
-    }
-}
 
-@Composable
-fun LoginScreen(onLoginClick: () -> Unit) {
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
+            btnBeautyPro.setOnClickListener {
+                startActivity(Intent(this, DashboardActivity::class.java))
+            }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp),
-        verticalArrangement = Arrangement.Center
-    ) {
-        OutlinedTextField(
-            value = email,
-            onValueChange = { email = it },
-            label = { Text("Email") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        OutlinedTextField(
-            value = password,
-            onValueChange = { password = it },
-            label = { Text("Password") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = onLoginClick,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Login")
+            btnClient.setOnClickListener {
+                startActivity(Intent(this, HomeActivity::class.java))
+            }
         }
     }
 }
