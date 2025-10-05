@@ -16,8 +16,8 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val ratingsButton: Button = findViewById(R.id.btnRatingsReviews)
-        ratingsButton.setOnClickListener {
+        val ratingButton: Button = findViewById(R.id.btnRatingsReviews)
+        ratingButton.setOnClickListener {
             val intent = Intent(this, RatingsActivity::class.java)
             startActivity(intent)
         }

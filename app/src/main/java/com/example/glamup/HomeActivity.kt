@@ -3,8 +3,7 @@ package com.example.glamup
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class HomeActivity : AppCompatActivity() {
@@ -13,27 +12,25 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val searchBox = findViewById<EditText>(R.id.searchBox)
-        val btnFilter = findViewById<Button>(R.id.btnFilter)
-        val btnPrice = findViewById<Button>(R.id.btnPrice)
-        val btnRating = findViewById<Button>(R.id.btnRating)
-        val btnAvailability = findViewById<Button>(R.id.btnAvailability)
+        // Profile images -> ProfileActivity (already clickable in your XML)
+        val imgSarah  = findViewById<ImageView>(R.id.imgSarah)
+        val imgMaria  = findViewById<ImageView>(R.id.imgMaria)
+        val imgEmily  = findViewById<ImageView>(R.id.imgEmily)
 
-        btnFilter.setOnClickListener { Toast.makeText(this, "Filters clicked", Toast.LENGTH_SHORT).show() }
-        btnPrice.setOnClickListener { Toast.makeText(this, "Price filter clicked", Toast.LENGTH_SHORT).show() }
-        btnRating.setOnClickListener { Toast.makeText(this, "Rating filter clicked", Toast.LENGTH_SHORT).show() }
-        btnAvailability.setOnClickListener { Toast.makeText(this, "Availability filter clicked", Toast.LENGTH_SHORT).show() }
+        imgSarah.setOnClickListener { openProfile("Sarah Johnson") }
+        imgMaria.setOnClickListener { openProfile("Maria Rodriguez") }
+        imgEmily.setOnClickListener { openProfile("Emily Chen") }
 
-        // “Book” buttons navigate to Booking screen (same as your friends)
-        val intentBooking = Intent(this, BookingActivity::class.java)
-        findViewById<Button>(R.id.btnBook1).setOnClickListener { startActivity(intentBooking) }
-        findViewById<Button>(R.id.btnBook2).setOnClickListener { startActivity(intentBooking) }
-        findViewById<Button>(R.id.btnBook3).setOnClickListener { startActivity(intentBooking) }
+        // Book buttons -> BookingActivity
+        val bookIntent = Intent(this, BookingActivity::class.java)
+        findViewById<Button>(R.id.btnBook1).setOnClickListener { startActivity(bookIntent) }
+        findViewById<Button>(R.id.btnBook2).setOnClickListener { startActivity(bookIntent) }
+        findViewById<Button>(R.id.btnBook3).setOnClickListener { startActivity(bookIntent) }
+    }
 
-        searchBox.setOnEditorActionListener { v, _, _ ->
-            Toast.makeText(this, "Searching: ${v.text}", Toast.LENGTH_SHORT).show()
-            true
-        }
+    private fun openProfile(name: String) {
+        val i = Intent(this, ProfileActivity::class.java)
+        i.putExtra("profile_name", name)
+        startActivity(i)
     }
 }
-

@@ -1,9 +1,7 @@
 package com.example.glamup
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -23,9 +21,6 @@ class DashboardActivity : AppCompatActivity() {
         val btnDecline2: Button = findViewById(R.id.btnDecline2)
         val btnAccept3: Button = findViewById(R.id.btnAccept3)
         val btnDecline3: Button = findViewById(R.id.btnDecline3)
-
-        // Profile button
-        val btnProfile: ImageButton = findViewById(R.id.btnProfile)
 
         // Handle Quick Actions
         btnManageAvailability.setOnClickListener {
@@ -59,12 +54,6 @@ class DashboardActivity : AppCompatActivity() {
 
         btnDecline3.setOnClickListener {
             Toast.makeText(this, "Request 3 Declined", Toast.LENGTH_SHORT).show()
-        }
-
-        // Handle Profile logo click
-        btnProfile.setOnClickListener {
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
         }
     }
 }

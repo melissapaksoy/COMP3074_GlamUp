@@ -30,7 +30,6 @@
             android:name=".admin.AdminActivity"
             android:exported="false" />
 
-        <!-- Teammates' screens -->
         <activity
             android:name=".BookingActivity"
             android:exported="false" />

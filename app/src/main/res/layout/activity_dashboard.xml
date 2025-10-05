@@ -286,36 +286,5 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Fixed Bottom-Right Profile Section -->
-    <LinearLayout
-        android:id="@+id/profileSection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="16dp">
-
-        <ImageButton
-            android:id="@+id/btnProfile"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:background="@drawable/round_profile_bg"
-            android:src="@mipmap/ic_launcher_round"
-            android:scaleType="centerCrop"
-            android:contentDescription="Profile Picture"
-            android:elevation="6dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile"
-            android:textStyle="bold"
-            android:textColor="#FF4081"
-            android:textSize="14sp"
-            android:layout_marginTop="4dp"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
 
 </RelativeLayout>
