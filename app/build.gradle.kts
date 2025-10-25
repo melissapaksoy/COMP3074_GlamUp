@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.google.devtools.ksp")
+    id("com.google.devtools.ksp") // version supplied in top-level build.gradle
 }
 
 android {
@@ -15,7 +15,6 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -28,31 +27,45 @@ android {
             )
         }
     }
+
+    // Use Java 17 for AGP/Compose
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
+
     buildFeatures {
         compose = true
     }
+
+    // (Optional; with Kotlin 2.x + Compose BOM this can be omitted)
+    // composeOptions {
+    //     kotlinCompilerExtensionVersion = "1.5.14"
+    // }
+
+    // Optional: tell Room where to export schemas when using KSP
+    // ksp {
+    //     arg("room.schemaLocation", "$projectDir/schemas")
+    // }
 }
 
 dependencies {
     implementation(libs.androidx.appcompat)
-    val room_version = "2.8.1"
 
-    // Room dependencies
+    // Room
+    val room_version = "2.8.1"
     implementation("androidx.room:room-runtime:$room_version")
-    implementation("androidx.room:room-ktx:$room_version") // recommended for coroutines/Flow
-    ksp("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version") // <-- real KSP call
 
     // Core + Lifecycle + Compose
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
@@ -66,9 +79,8 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
 
-    // Debug tools
+    // Debug
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
 
-private fun DependencyHandlerScope.ksp(string: String) {}
