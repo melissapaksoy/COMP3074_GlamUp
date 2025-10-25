@@ -74,20 +74,27 @@ class BookingActivity : AppCompatActivity() {
         // Confirm Booking Button
         val btnConfirm: Button = findViewById(R.id.btnConfirmBooking)
         btnConfirm.setOnClickListener {
-            btnConfirm.setOnClickListener {
-                val chosenService = spinner.selectedItem.toString()
-                if (selectedDate == null || selectedTime == null) {
-                    Toast.makeText(this, "Please select a date and time", Toast.LENGTH_SHORT).show()
-                } else {
+            val chosenService = spinner.selectedItem.toString()
+
+            btnConfirm.isEnabled = false // prevents double-tap
+
+            if (selectedDate == null || selectedTime == null) {
+                Toast.makeText(this, "Please select a date and time", Toast.LENGTH_SHORT).show()
+                btnConfirm.isEnabled = true
+            } else {
+                btnConfirm.postDelayed({
                     val intent = Intent(this, BookingConfirmationActivity::class.java)
                     intent.putExtra("SERVICE", chosenService)
                     intent.putExtra("DATE", selectedDate)
                     intent.putExtra("TIME", selectedTime)
                     startActivity(intent)
-                }
+                }, 150)
             }
         }
+
     }
 }
+
+
 
 
