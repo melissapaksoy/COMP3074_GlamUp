@@ -15,5 +15,11 @@ class ProfileActivity : AppCompatActivity() {
             val intent = Intent(this, BookingActivity::class.java)
             startActivity(intent)
         }
+
+        val ratingButton: Button = findViewById(R.id.btnRatingsReviews)
+        ratingButton.setOnClickListener {
+            val intent = Intent(this, RatingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
