@@ -72,34 +72,46 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/tvTime1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10:00 AM"
                 android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white"
                 android:padding="12dp"
                 android:layout_margin="6dp"
-                android:gravity="center" />
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true" />
 
             <TextView
+                android:id="@+id/tvTime2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1:00 PM"
                 android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white"
                 android:padding="12dp"
                 android:layout_margin="6dp"
-                android:gravity="center" />
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true" />
 
             <TextView
+                android:id="@+id/tvTime3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3:00 PM"
                 android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white"
                 android:padding="12dp"
                 android:layout_margin="6dp"
-                android:gravity="center" />
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true" />
         </LinearLayout>
 
-        <!-- Confirm Button -->
+        <!-- Confirm Booking Button -->
         <Button
             android:id="@+id/btnConfirmBooking"
             android:layout_width="match_parent"

@@ -1,12 +1,17 @@
 package com.example.glamup
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import java.util.*
 
 class BookingActivity : AppCompatActivity() {
+
+    private var selectedDate: String? = null
+    private var selectedTime: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,25 +37,57 @@ class BookingActivity : AppCompatActivity() {
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-            val datePicker = DatePickerDialog(this,
+            val datePicker = DatePickerDialog(
+                this,
                 { _, selectedYear, selectedMonth, selectedDay ->
-                    val dateString = "${selectedDay}/${selectedMonth + 1}/$selectedYear"
-                    txtSelectedDate.text = "Selected Date: $dateString"
-                }, year, month, day)
+                    selectedDate = "${selectedDay}/${selectedMonth + 1}/$selectedYear"
+                    txtSelectedDate.text = "Selected Date: $selectedDate"
+                }, year, month, day
+            )
 
             datePicker.show()
+        }
+
+        // Time slot TextViews
+        val tvTime1: TextView = findViewById(R.id.tvTime1)
+        val tvTime2: TextView = findViewById(R.id.tvTime2)
+        val tvTime3: TextView = findViewById(R.id.tvTime3)
+        val timeViews = listOf(tvTime1, tvTime2, tvTime3)
+
+        timeViews.forEach { timeView ->
+            timeView.setOnClickListener {
+                // Reset colors
+                timeViews.forEach {
+                    it.setBackgroundColor(ContextCompat.getColor(this, android.R.color.darker_gray))
+                }
+                // Highlight selected
+                timeView.setBackgroundColor(
+                    ContextCompat.getColor(
+                        this,
+                        android.R.color.holo_purple
+                    )
+                )
+                selectedTime = timeView.text.toString()
+            }
         }
 
         // Confirm Booking Button
         val btnConfirm: Button = findViewById(R.id.btnConfirmBooking)
         btnConfirm.setOnClickListener {
-            val chosenService = spinner.selectedItem.toString()
-            val chosenDate = txtSelectedDate.text.toString()
-            Toast.makeText(
-                this,
-                "Booking confirmed!\nService: $chosenService\n$chosenDate",
-                Toast.LENGTH_LONG
-            ).show()
+            btnConfirm.setOnClickListener {
+                val chosenService = spinner.selectedItem.toString()
+                if (selectedDate == null || selectedTime == null) {
+                    Toast.makeText(this, "Please select a date and time", Toast.LENGTH_SHORT).show()
+                } else {
+                    val intent = Intent(this, BookingConfirmationActivity::class.java)
+                    intent.putExtra("SERVICE", chosenService)
+                    intent.putExtra("DATE", selectedDate)
+                    intent.putExtra("TIME", selectedTime)
+                    startActivity(intent)
+                }
+            }
         }
     }
 }
+
+
