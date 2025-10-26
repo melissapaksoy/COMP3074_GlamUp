@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.google.devtools.ksp") // version supplied in top-level build.gradle
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -82,5 +83,9 @@ dependencies {
     // Debug
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+}
+dependencies {
+    implementation("com.google.firebase:firebase-auth:22.3.0")
+    implementation("com.google.android.gms:play-services-auth:21.1.1")
 }
 
