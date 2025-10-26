@@ -81,9 +81,11 @@ class HomeActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.imgMaria).setOnClickListener { openProfile("Maria Rodriguez") }
         findViewById<ImageView>(R.id.imgEmily).setOnClickListener { openProfile("Emily Chen") }
 
-        findViewById<Button>(R.id.btnBook1).setOnClickListener { startActivity(Intent(this, BookingActivity::class.java)) }
-        findViewById<Button>(R.id.btnBook2).setOnClickListener { startActivity(Intent(this, BookingActivity::class.java)) }
-        findViewById<Button>(R.id.btnBook3).setOnClickListener { startActivity(Intent(this, BookingActivity::class.java)) }
+
+        findViewById<Button>(R.id.btnBook1).setOnClickListener { openProfile("Sarah Johnson") }
+        findViewById<Button>(R.id.btnBook2).setOnClickListener { openProfile("Maria Rodriguez") }
+        findViewById<Button>(R.id.btnBook3).setOnClickListener { openProfile("Emily Chen") }
+
 
         applyFilters()
     }
