@@ -13,23 +13,25 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         // Profile images -> ProfileActivity
-        val imgSarah  = findViewById<ImageView>(R.id.imgSarah)
-        val imgMaria  = findViewById<ImageView>(R.id.imgMaria)
-        val imgEmily  = findViewById<ImageView>(R.id.imgEmily)
+        findViewById<ImageView>(R.id.imgSarah).setOnClickListener {
+            openProfile("Sarah Johnson")
+        }
+        findViewById<ImageView>(R.id.imgMaria).setOnClickListener {
+            openProfile("Maria Rodriguez")
+        }
+        findViewById<ImageView>(R.id.imgEmily).setOnClickListener {
+            openProfile("Emily Chen")
+        }
 
-        imgSarah.setOnClickListener { openProfile("Sarah Johnson") }
-        imgMaria.setOnClickListener { openProfile("Maria Rodriguez") }
-        imgEmily.setOnClickListener { openProfile("Emily Chen") }
-
-        // Book buttons -> create NEW intent each time!
+        // Book buttons -> also open ProfileActivity
         findViewById<Button>(R.id.btnBook1).setOnClickListener {
-            startActivity(Intent(this, BookingActivity::class.java))
+            openProfile("Sarah Johnson")
         }
         findViewById<Button>(R.id.btnBook2).setOnClickListener {
-            startActivity(Intent(this, BookingActivity::class.java))
+            openProfile("Maria Rodriguez")
         }
         findViewById<Button>(R.id.btnBook3).setOnClickListener {
-            startActivity(Intent(this, BookingActivity::class.java))
+            openProfile("Emily Chen")
         }
     }
 
