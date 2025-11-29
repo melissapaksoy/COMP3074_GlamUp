@@ -24,7 +24,8 @@ class BookingActivity : AppCompatActivity() {
             "✨ Nail Art Add-on - $15",
             "💖 Full Set Acrylic - $50"
         )
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, services)
+        val adapter =
+            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, services)
         spinner.adapter = adapter
 
         // Date Picker
@@ -37,12 +38,17 @@ class BookingActivity : AppCompatActivity() {
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
+            // 👇 use our glam pink style for the dialog
             val datePicker = DatePickerDialog(
                 this,
+                R.style.GlamUpDatePicker,
                 { _, selectedYear, selectedMonth, selectedDay ->
                     selectedDate = "${selectedDay}/${selectedMonth + 1}/$selectedYear"
                     txtSelectedDate.text = "Selected Date: $selectedDate"
-                }, year, month, day
+                },
+                year,
+                month,
+                day
             )
 
             datePicker.show()
@@ -58,9 +64,14 @@ class BookingActivity : AppCompatActivity() {
             timeView.setOnClickListener {
                 // Reset colors
                 timeViews.forEach {
-                    it.setBackgroundColor(ContextCompat.getColor(this, android.R.color.darker_gray))
+                    it.setBackgroundColor(
+                        ContextCompat.getColor(
+                            this,
+                            android.R.color.darker_gray
+                        )
+                    )
                 }
-                // Highlight selected
+                // Highlight selected (you can swap this color for your own pink in colors.xml)
                 timeView.setBackgroundColor(
                     ContextCompat.getColor(
                         this,
@@ -91,9 +102,5 @@ class BookingActivity : AppCompatActivity() {
                 }, 150)
             }
         }
-
     }
 }
-
-
-
