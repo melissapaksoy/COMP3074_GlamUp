@@ -84,3 +84,14 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
+<<<<<<< HEAD
+=======
+dependencies {
+    implementation("com.google.firebase:firebase-auth:22.3.0")
+    implementation("com.google.android.gms:play-services-auth:21.1.1")
+    implementation(platform("com.google.firebase:firebase-bom:33.1.2")) // or latest version
+    implementation("com.google.firebase:firebase-firestore-ktx")
+
+}
+
+>>>>>>> 926fce4 (Dashboard redesign + firestore integration for reviews)
