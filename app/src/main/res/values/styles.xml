@@ -1,0 +1,34 @@
+<resources>
+    <!-- Use a standard Dialog theme, not Alert, to allow header coloring -->
+    <style name="GlamUpDatePicker" parent="@style/Theme.MaterialComponents.Light.Dialog">
+        <!-- 🌸 Forces the header background to be Pink -->
+        <item name="colorPrimary">@color/glam_pink</item>
+        <!-- Text inside the header (Sat, Nov 29) to be White -->
+        <item name="colorOnPrimary">@android:color/white</item>
+        <!-- The small 'Select Date' label in the header -->
+        <item name="android:textColorSecondary">@android:color/white</item>
+
+        <!-- Button Text Color (OK/Cancel) -->
+        <item name="colorAccent">@color/glam_pink</item>
+
+        <!-- Apply specific styles to the calendar widget inside -->
+        <item name="android:datePickerStyle">@style/GlamUpCalendarStyle</item>
+    </style>
+
+    <style name="GlamUpCalendarStyle" parent="@android:style/Widget.Material.DatePicker">
+        <!-- 🌸 Explicitly set the header background here too just in case -->
+        <item name="android:headerBackground">@color/glam_pink</item>
+
+        <!-- Weekday labels (S, M, T...) -->
+        <item name="android:weekDayTextAppearance">@style/GlamWeekdays</item>
+
+        <!-- The selected day circle color -->
+        <item name="android:colorAccent">@color/glam_pink</item>
+    </style>
+
+    <style name="GlamWeekdays" parent="@android:style/TextAppearance.Material.Body2">
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>
