@@ -88,7 +88,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Services & Prices"
+            android:text="Services &amp; Prices"
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="#D81B60"
