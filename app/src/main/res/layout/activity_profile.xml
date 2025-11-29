@@ -193,13 +193,13 @@
             <ImageView
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:src="@drawable/nails1"
                 android:layout_margin="8dp" />
 
             <ImageView
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:src="@drawable/nails2"
                 android:layout_margin="8dp" />
 
             <ImageView
