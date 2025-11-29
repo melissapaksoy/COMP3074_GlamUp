@@ -38,7 +38,6 @@ class BookingActivity : AppCompatActivity() {
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-            // 👇 use our glam pink style for the dialog
             val datePicker = DatePickerDialog(
                 this,
                 R.style.GlamUpDatePicker,
@@ -51,8 +50,12 @@ class BookingActivity : AppCompatActivity() {
                 day
             )
 
+            // 🔒 BLOCK ALL PAST DATES
+            datePicker.datePicker.minDate = System.currentTimeMillis()
+
             datePicker.show()
         }
+
 
         val backButton = findViewById<ImageView>(R.id.btnBackBooking)
         backButton.setOnClickListener {
