@@ -11,24 +11,26 @@ class BookingConfirmationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking_confirmation)
 
-        // Retrieve views
-        val txtMessage: TextView = findViewById(R.id.txtBookingMessage)
-        val txtDetails: TextView = findViewById(R.id.txtBookingDetails)
-        val btnBack: Button = findViewById(R.id.btnBackToHome)
+        // Get data from intent
+        val service = intent.getStringExtra("SERVICE") ?: "Unknown Service"
+        val date = intent.getStringExtra("DATE") ?: "Unknown Date"
+        val time = intent.getStringExtra("TIME") ?: "Unknown Time"
 
-        // Get booking info from intent
-        val service = intent.getStringExtra("SERVICE")
-        val date = intent.getStringExtra("DATE")
-        val time = intent.getStringExtra("TIME")
+        // Match correct TextViews from XML
+        val txtService = findViewById<TextView>(R.id.txtService)
+        val txtDate = findViewById<TextView>(R.id.txtDate)
+        val txtTime = findViewById<TextView>(R.id.txtTime)
+        val btnBack = findViewById<Button>(R.id.btnBackToHome)
 
-        // Display confirmation message
-        txtMessage.text = "🎉 Booking Confirmed!"
-        txtDetails.text = "Service: $service\nDate: $date\nTime: $time"
+        // Set dynamic values
+        txtService.text = "Service: $service"
+        txtDate.text = "Date: $date"
+        txtTime.text = "Time: $time"
 
-        // Navigate back to home
+        // Button action
         btnBack.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
             finish()
         }
