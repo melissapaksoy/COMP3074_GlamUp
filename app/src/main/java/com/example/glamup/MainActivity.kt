@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                 auth.signInWithCredential(cred)
                     .addOnSuccessListener {
                         startActivity(Intent(this, HomeActivity::class.java))
-                        finish() // optional
+                        finish()
                     }
                     .addOnFailureListener {
                         Toast.makeText(this, "Auth failed: ${it.localizedMessage}", Toast.LENGTH_SHORT).show()
@@ -42,66 +42,53 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // LOGIN BUTTONS
         val btnAdmin = findViewById<Button>(R.id.btnAdminLogin)
         val btnBeautyPro = findViewById<Button>(R.id.btnBeautyProLogin)
         val btnClient = findViewById<Button>(R.id.btnClientLogin)
-
-        // SOCIAL LOGIN (dummy)
         val btnGoogle = findViewById<Button>(R.id.btnGoogle)
         val btnFacebook = findViewById<Button>(R.id.btnFacebook)
-
-        // TEXT LINKS
         val tvForgot = findViewById<TextView>(R.id.tvForgot)
         val tvSignup = findViewById<TextView>(R.id.tvSignup)
 
-        // === ASSIGN LISTENERS PROPERLY ===
-
-        // Admin → Admin Panel
+        // Admin Login
         btnAdmin.setOnClickListener {
             startActivity(Intent(this, AdminActivity::class.java))
         }
 
-        // Beauty Pro → Dashboard
+        // Beauty Pro Dashboard
         btnBeautyPro.setOnClickListener {
             startActivity(Intent(this, DashboardActivity::class.java))
         }
 
-        // Client → Home screen
+        // Client Login
         btnClient.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
         }
 
-        // Social Login → Just go home for now
-        btnGoogle.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
-        }
-
-        btnFacebook.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
-        }
-
-        // Forgot password → placeholder
-        tvForgot.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
-        }
-
-        // Signup → placeholder
-        tvSignup.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
-        }
+        // Google Login
         btnGoogle.setOnClickListener {
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id)) // from google-services.json
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
+
             val client = GoogleSignIn.getClient(this, gso)
             googleSignInLauncher.launch(client.signInIntent)
         }
 
+        // Facebook Login (placeholder)
+        btnFacebook.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://www.facebook.com/login")))
+        }
 
-        btnFacebook.setOnClickListener { startActivity(Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://www.facebook.com/login"))) }    // TODO: replace with real FB login
-        tvForgot.setOnClickListener { goHome() }       // TODO: navigate to ForgotPasswordActivity
-        tvSignup.setOnClickListener { goHome() }       // TODO: navigate to SignUpActivity
+        // Forgot Password (placeholder)
+        tvForgot.setOnClickListener { goHome() }
+
+        // Signup (placeholder)
+        tvSignup.setOnClickListener { goHome() }
+    }
+
+    private fun goHome() {
+        startActivity(Intent(this, HomeActivity::class.java))
     }
 }
