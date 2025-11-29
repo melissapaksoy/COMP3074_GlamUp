@@ -36,7 +36,7 @@
         android:id="@+id/tvHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Register Your Account"
         android:textColor="@android:color/white"
         android:textSize="18sp"
@@ -169,7 +169,7 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <!-- CONFIRM PASSWORD (New) -->
+    <!-- CONFIRM PASSWORD -->
     <LinearLayout
         android:id="@+id/cardConfirmPassword"
         android:layout_width="match_parent"
@@ -198,7 +198,7 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <!-- CHECKBOXES (Grouped properly) -->
+    <!-- CHECKBOXES -->
     <LinearLayout
         android:id="@+id/rowCheckboxes"
         android:layout_width="match_parent"
@@ -231,7 +231,7 @@
         android:id="@+id/btnRegister"
         android:layout_width="200dp"
         android:layout_height="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/bg_login_button"
         android:text="SignUp!"
         android:textAllCaps="false"
@@ -242,11 +242,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rowCheckboxes" />
 
-    <!-- BOTTOM LOGIN LINK -->
+    <!-- BOTTOM LOGIN LINK CONTAINER -->
+    <!-- This is pinned to the bottom of the screen -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
