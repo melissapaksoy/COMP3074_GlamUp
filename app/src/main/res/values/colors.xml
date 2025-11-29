@@ -10,5 +10,11 @@
     <color name="glam_pink">#FF4FA3</color>
     <color name="glam_pink_dark">#C2185B</color>
     <color name="glam_pink_light">#FFE0EC</color>
+    <color name="glamPink">#FF6FAF</color>
+    <color name="glamPinkDark">#E05397</color>
+    <color name="glamBackground">#FFF6FB</color>
+    <color name="glamTextDark">#333333</color>
+    <color name="glamCard">#FFFFFFFF</color>
+
 
 </resources>
