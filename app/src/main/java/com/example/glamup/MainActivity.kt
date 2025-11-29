@@ -13,35 +13,53 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Original buttons (dummy)
-        val goHome = { startActivity(Intent(this, HomeActivity::class.java)) }
-        findViewById<Button>(R.id.btnAdminLogin).setOnClickListener {
-            goHome()
-            findViewById<Button>(R.id.btnBeautyProLogin).setOnClickListener { goHome() }
-            findViewById<Button>(R.id.btnClientLogin).setOnClickListener { goHome() }
-            findViewById<Button>(R.id.btnGoogle).setOnClickListener { goHome() }
-            findViewById<Button>(R.id.btnFacebook).setOnClickListener { goHome() }
+        // LOGIN BUTTONS
+        val btnAdmin = findViewById<Button>(R.id.btnAdminLogin)
+        val btnBeautyPro = findViewById<Button>(R.id.btnBeautyProLogin)
+        val btnClient = findViewById<Button>(R.id.btnClientLogin)
 
-            findViewById<TextView>(R.id.tvForgot).setOnClickListener { goHome() }
-            findViewById<TextView>(R.id.tvSignup).setOnClickListener { goHome() }
+        // SOCIAL LOGIN (dummy)
+        val btnGoogle = findViewById<Button>(R.id.btnGoogle)
+        val btnFacebook = findViewById<Button>(R.id.btnFacebook)
 
-            // === NEW LOGIN TYPE BUTTONS ===
-            val btnAdmin = findViewById<Button>(R.id.btnAdminLogin)
-            val btnBeautyPro = findViewById<Button>(R.id.btnBeautyProLogin)
-            val btnClient = findViewById<Button>(R.id.btnClientLogin)
+        // TEXT LINKS
+        val tvForgot = findViewById<TextView>(R.id.tvForgot)
+        val tvSignup = findViewById<TextView>(R.id.tvSignup)
 
-            // Navigation for each
-            btnAdmin.setOnClickListener {
-                startActivity(Intent(this, AdminActivity::class.java))
-            }
+        // === ASSIGN LISTENERS PROPERLY ===
 
-            btnBeautyPro.setOnClickListener {
-                startActivity(Intent(this, DashboardActivity::class.java))
-            }
+        // Admin → Admin Panel
+        btnAdmin.setOnClickListener {
+            startActivity(Intent(this, AdminActivity::class.java))
+        }
 
-            btnClient.setOnClickListener {
-                startActivity(Intent(this, HomeActivity::class.java))
-            }
+        // Beauty Pro → Dashboard
+        btnBeautyPro.setOnClickListener {
+            startActivity(Intent(this, DashboardActivity::class.java))
+        }
+
+        // Client → Home screen
+        btnClient.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        // Social Login → Just go home for now
+        btnGoogle.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        btnFacebook.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        // Forgot password → placeholder
+        tvForgot.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        // Signup → placeholder
+        tvSignup.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 }
