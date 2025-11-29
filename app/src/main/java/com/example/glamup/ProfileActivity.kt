@@ -3,12 +3,18 @@ package com.example.glamup
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+
+        val selectedName = intent.getStringExtra("profile_name")
+        selectedName?.let { name ->
+            findViewById<TextView>(R.id.txtProfileName)?.text = name
+        }
 
         val bookButton: Button = findViewById(R.id.btnBookAppointment)
         bookButton.setOnClickListener {
