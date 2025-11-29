@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <!-- Launcher / Login screen -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,7 +19,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Home screen -->
         <activity
             android:name=".SignUpActivity"
             android:exported="false"
@@ -29,32 +27,26 @@
             android:name=".HomeActivity"
             android:exported="true" />
 
-        <!-- Admin Panel screen -->
         <activity
             android:name=".admin.AdminActivity"
             android:exported="false" />
 
-        <!-- Booking screen -->
         <activity
             android:name=".BookingActivity"
             android:exported="false" />
 
-        <!-- Booking Confirmation screen -->
         <activity
             android:name=".BookingConfirmationActivity"
             android:exported="false" />
 
-        <!-- Dashboard screen -->
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
 
-        <!-- Profile screen -->
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
 
-        <!-- Ratings & Reviews screen -->
         <activity
             android:name=".RatingsActivity"
             android:exported="false" />

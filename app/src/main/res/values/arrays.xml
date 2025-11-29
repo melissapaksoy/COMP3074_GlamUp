@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="service_filter_options">
+        <item>All services</item>
+        <item>Hair</item>
+        <item>Nails</item>
+        <item>Makeup</item>
+    </string-array>
+
+    <string-array name="price_sort_options">
+        <item>Price: Low to High</item>
+        <item>Price: High to Low</item>
+    </string-array>
+
+    <string-array name="rating_filter_options">
+        <item>All ratings</item>
+        <item>1 *</item>
+        <item>2 *</item>
+        <item>3 *</item>
+        <item>4 *</item>
+        <item>5 *</item>
+    </string-array>
+
+    <string-array name="availability_filter_options">
+        <item>All availability</item>
+        <item>Available today</item>
+    </string-array>
+</resources>
