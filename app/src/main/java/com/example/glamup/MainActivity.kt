@@ -16,6 +16,9 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
+import android.util.Log
+import com.google.firebase.firestore.FieldValue
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -90,6 +93,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+       // --- ADMIN SEED ---
+       seedAdminUser()
+
+
+            // 🔥 TEST: simple Firestore write
+        val db = FirebaseFirestore.getInstance()
+        val testData = hashMapOf(
+            "fromApp" to "GlamUp",
+            "time" to FieldValue.serverTimestamp()
+        )
+
+        db.collection("debug")
+            .document("testDoc")
+            .set(testData)
+            .addOnSuccessListener {
+                Log.d("FIREBASE_TEST", "Successfully wrote testDoc")
+            }
+            .addOnFailureListener { e ->
+                Log.e("FIREBASE_TEST", "Error writing testDoc", e)
+            }
+
         // Bind views
         edtEmail = findViewById(R.id.edtEmail)
         edtPassword = findViewById(R.id.edtPassword)
@@ -155,10 +180,60 @@ class MainActivity : AppCompatActivity() {
 
         // Sign up – Launches the new SignUpActivity
         tvSignup.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
+
     }
+
+    // --- TEMPORARY ADMIN SEED FUNCTION ---
+    // Call this ONCE in onCreate, run the app, then remove it.
+    private fun seedAdminUser() {
+        val adminEmail = "admin@glamup.com"
+        val adminPassword = "password123"
+
+        // 1. Try to Sign In first (in case user already exists)
+        auth.signInWithEmailAndPassword(adminEmail, adminPassword)
+            .addOnSuccessListener { result ->
+                // User exists! Update their role to ADMIN just to be sure.
+                val uid = result.user?.uid
+                if (uid != null) {
+                    updateAdminRole(uid)
+                }
+            }
+            .addOnFailureListener {
+                // 2. If Sign In fails, try creating the user
+                auth.createUserWithEmailAndPassword(adminEmail, adminPassword)
+                    .addOnSuccessListener { result ->
+                        val uid = result.user?.uid
+                        if (uid != null) {
+                            updateAdminRole(uid)
+                        }
+                    }
+                    .addOnFailureListener { e ->
+                        Log.e("ADMIN_SEED", "Could not create or sign in admin", e)
+                        Toast.makeText(this, "Error: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+                    }
+            }
+    }
+
+    // Helper to force the role in Firestore
+    private fun updateAdminRole(uid: String) {
+        val adminData = hashMapOf(
+            "uid" to uid,
+            "email" to "admin@glamup.com",
+            "role" to "ADMIN", // Force role to ADMIN
+            "name" to "Super Admin"
+        )
+        db.collection("users").document(uid).set(adminData)
+            .addOnSuccessListener {
+                Log.d("ADMIN_SEED", "Admin role set successfully")
+            }
+            .addOnFailureListener { e ->
+                Log.e("ADMIN_SEED", "Error setting admin role", e)
+            }
+    }
+
+
 
     private fun navigateToDashboard(role: String) {
         val intent = when (role.uppercase()) {
