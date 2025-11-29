@@ -42,26 +42,53 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Grab views
-        val btnAdmin     = findViewById<Button>(R.id.btnAdminLogin)
+        // LOGIN BUTTONS
+        val btnAdmin = findViewById<Button>(R.id.btnAdminLogin)
         val btnBeautyPro = findViewById<Button>(R.id.btnBeautyProLogin)
-        val btnClient    = findViewById<Button>(R.id.btnClientLogin)
-        val btnGoogle    = findViewById<Button>(R.id.btnGoogle)
-        val btnFacebook  = findViewById<Button>(R.id.btnFacebook)
-        val tvForgot     = findViewById<TextView>(R.id.tvForgot)
-        val tvSignup     = findViewById<TextView>(R.id.tvSignup)
+        val btnClient = findViewById<Button>(R.id.btnClientLogin)
 
-        // Simple helper
-        fun goHome() = startActivity(Intent(this, HomeActivity::class.java))
+        // SOCIAL LOGIN (dummy)
+        val btnGoogle = findViewById<Button>(R.id.btnGoogle)
+        val btnFacebook = findViewById<Button>(R.id.btnFacebook)
 
+        // TEXT LINKS
+        val tvForgot = findViewById<TextView>(R.id.tvForgot)
+        val tvSignup = findViewById<TextView>(R.id.tvSignup)
+
+        // === ASSIGN LISTENERS PROPERLY ===
+
+        // Admin → Admin Panel
         btnAdmin.setOnClickListener {
             startActivity(Intent(this, AdminActivity::class.java))
         }
+
+        // Beauty Pro → Dashboard
         btnBeautyPro.setOnClickListener {
             startActivity(Intent(this, DashboardActivity::class.java))
         }
+
+        // Client → Home screen
         btnClient.setOnClickListener {
-            goHome()
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        // Social Login → Just go home for now
+        btnGoogle.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        btnFacebook.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        // Forgot password → placeholder
+        tvForgot.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
+        // Signup → placeholder
+        tvSignup.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
         }
         btnGoogle.setOnClickListener {
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
