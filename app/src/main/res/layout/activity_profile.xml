@@ -1,296 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF3F8">
 
-    <LinearLayout
+    <!-- FIXED BACK BUTTON (always clickable) -->
+    <FrameLayout
+        android:id="@+id/backButtonContainer"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/outline_arrow_back_24"
+            app:tint="#D81B60" />
+    </FrameLayout>
+
+
+    <!-- SCROLLABLE CONTENT -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-
-        <!-- HEADER CARD -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/pink_gradient_background"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:gravity="center_vertical"
-            android:elevation="4dp"
-            android:layout_marginBottom="20dp">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <ImageView
-                android:id="@+id/imgProfilePhoto"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/maria_rodriguez"
-                android:background="#FFFFFF"
-                android:padding="4dp"
-                android:scaleType="centerCrop"
-                android:layout_marginEnd="16dp"
-                android:clipToOutline="true" />
+
+            <!-- HEADER CARD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pink_gradient_background"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical"
+                android:elevation="4dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/imgProfilePhoto"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/maria_rodriguez"
+                    android:background="#FFFFFF"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginEnd="16dp"
+                    android:clipToOutline="true" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtProfileName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Maria Rodriguez"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtProfession"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nail Artist"
+                        android:textColor="#FFE6F2"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/txtRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⭐ 4.8 (120 reviews)"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- ABOUT SECTION -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#D81B60"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Experienced nail artist specializing in gel manicures, acrylic sets, and custom designs. Providing a clean, comfortable, and personalized beauty experience."
+                android:textColor="#555555"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp" />
+
+
+            <!-- SERVICES SECTION -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Services &amp; Prices"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#D81B60"
+                android:layout_marginBottom="10dp" />
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
 
                 <TextView
-                    android:id="@+id/txtProfileName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Maria Rodriguez"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:text="💅 Gel Manicure - $35"
+                    android:textSize="15sp"
+                    android:textColor="#444" />
 
                 <TextView
-                    android:id="@+id/txtProfession"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nail Artist"
-                    android:textColor="#FFE6F2"
-                    android:textSize="14sp" />
+                    android:text="✨ Nail Art Add-on - $15"
+                    android:textSize="15sp"
+                    android:textColor="#444" />
 
                 <TextView
-                    android:id="@+id/txtRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="⭐ 4.8 (120 reviews)"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:layout_marginTop="4dp" />
-
+                    android:text="💖 Full Set Acrylic - $50"
+                    android:textSize="15sp"
+                    android:textColor="#444" />
             </LinearLayout>
+
+
+            <!-- AVAILABILITY SECTION -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Availability"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#D81B60"
+                android:layout_marginBottom="10dp" />
+
+            <LinearLayout
+                android:id="@+id/layoutAvailability"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/tvTime1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10:00 AM"
+                    android:padding="12dp"
+                    android:background="@drawable/time_chip"
+                    android:layout_margin="6dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tvTime2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12:00 PM"
+                    android:padding="12dp"
+                    android:background="@drawable/time_chip"
+                    android:layout_margin="6dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tvTime3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2:00 PM"
+                    android:padding="12dp"
+                    android:background="@drawable/time_chip"
+                    android:layout_margin="6dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+
+            <!-- GALLERY SECTION -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gallery"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#D81B60"
+                android:layout_marginBottom="10dp" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:alignmentMode="alignMargins"
+                android:rowOrderPreserved="false"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
+
+                <!-- 9 gallery images (unchanged) -->
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails1" android:scaleType="centerCrop" android:layout_margin="6dp"/>
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails2" android:scaleType="centerCrop" android:layout_margin="6dp"/>
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails3" android:scaleType="centerCrop" android:layout_margin="6dp"/>
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails4" android:scaleType="centerCrop" android:layout_margin="6dp"/>
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails5" android:scaleType="centerCrop" android:layout_margin="6dp"/>
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails6" android:scaleType="centerCrop" android:layout_margin="6dp"/>
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails7" android:scaleType="centerCrop" android:layout_margin="6dp"/>
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails8" android:scaleType="centerCrop" android:layout_margin="6dp"/>
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails9" android:scaleType="centerCrop" android:layout_margin="6dp"/>
+
+            </GridLayout>
+
+
+            <!-- BUTTONS -->
+            <Button
+                android:id="@+id/btnBookAppointment"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="BOOK APPOINTMENT"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#D81B60"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnRatingsReviews"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="RATINGS &amp; REVIEWS"
+                android:backgroundTint="#F8BBD0"
+                android:textColor="#880E4F"
+                android:textStyle="bold" />
+
         </LinearLayout>
 
-        <!-- ABOUT SECTION -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="#D81B60"
-            android:layout_marginBottom="6dp" />
+    </ScrollView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Experienced nail artist specializing in gel manicures, acrylic sets, and custom designs. Providing a clean, comfortable, and personalized beauty experience."
-            android:textColor="#555555"
-            android:textSize="14sp"
-            android:layout_marginBottom="20dp" />
-
-        <!-- SERVICES SECTION -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Services &amp; Prices"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="#D81B60"
-            android:layout_marginBottom="10dp" />
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="💅 Gel Manicure - $35"
-                android:textSize="15sp"
-                android:textColor="#444" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="✨ Nail Art Add-on - $15"
-                android:textSize="15sp"
-                android:textColor="#444" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="💖 Full Set Acrylic - $50"
-                android:textSize="15sp"
-                android:textColor="#444" />
-        </LinearLayout>
-
-        <!-- AVAILABILITY SECTION -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Availability"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="#D81B60"
-            android:layout_marginBottom="10dp" />
-
-        <LinearLayout
-            android:id="@+id/layoutAvailability"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginBottom="20dp">
-
-            <TextView
-                android:id="@+id/tvTime1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10:00 AM"
-                android:padding="12dp"
-                android:background="@drawable/time_chip"
-                android:layout_margin="6dp"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/tvTime2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12:00 PM"
-                android:padding="12dp"
-                android:background="@drawable/time_chip"
-                android:layout_margin="6dp"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/tvTime3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2:00 PM"
-                android:padding="12dp"
-                android:background="@drawable/time_chip"
-                android:layout_margin="6dp"
-                android:gravity="center" />
-        </LinearLayout>
-
-        <!-- GALLERY SECTION -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gallery"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="#D81B60"
-            android:layout_marginBottom="10dp" />
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="3"
-            android:alignmentMode="alignMargins"
-            android:rowOrderPreserved="false"
-            android:gravity="center"
-            android:layout_marginBottom="20dp">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/nails1"
-                android:scaleType="centerCrop"
-                android:layout_margin="6dp"
-                android:layout_gravity="center" />
-
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/nails2"
-                android:scaleType="centerCrop"
-                android:layout_margin="6dp"
-                android:layout_gravity="center" />
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/nails3"
-                android:scaleType="centerCrop"
-                android:layout_margin="6dp"
-                android:layout_gravity="center" />
-
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/nails4"
-                android:scaleType="centerCrop"
-                android:layout_margin="6dp"
-                android:layout_gravity="center" />
-
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/nails5"
-                android:scaleType="centerCrop"
-                android:layout_margin="6dp"
-                android:layout_gravity="center" />
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/nails6"
-                android:scaleType="centerCrop"
-                android:layout_margin="6dp"
-                android:layout_gravity="center" />
-
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/nails7"
-                android:scaleType="centerCrop"
-                android:layout_margin="6dp"
-                android:layout_gravity="center" />
-
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/nails8"
-                android:scaleType="centerCrop"
-                android:layout_margin="6dp"
-                android:layout_gravity="center" />
-
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/nails9"
-                android:scaleType="centerCrop"
-                android:layout_margin="6dp"
-                android:layout_gravity="center" />
-
-        </GridLayout>
-
-        <!-- BUTTONS -->
-        <Button
-            android:id="@+id/btnBookAppointment"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="BOOK APPOINTMENT"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#D81B60"
-            android:layout_marginBottom="16dp" />
-
-        <Button
-            android:id="@+id/btnRatingsReviews"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="RATINGS &amp; REVIEWS"
-            android:backgroundTint="#F8BBD0"
-            android:textColor="#880E4F"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

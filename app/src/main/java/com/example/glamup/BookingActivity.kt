@@ -54,6 +54,12 @@ class BookingActivity : AppCompatActivity() {
             datePicker.show()
         }
 
+        val backButton = findViewById<ImageView>(R.id.btnBackBooking)
+        backButton.setOnClickListener {
+            finish()   // instantly returns to ProfileActivity
+        }
+
+
         // Time slot TextViews
         val tvTime1: TextView = findViewById(R.id.tvTime1)
         val tvTime2: TextView = findViewById(R.id.tvTime2)
