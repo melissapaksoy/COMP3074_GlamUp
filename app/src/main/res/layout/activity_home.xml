@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Scrollable main content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +14,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -26,7 +24,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Search -->
             <EditText
                 android:id="@+id/searchBox"
                 android:layout_width="match_parent"
@@ -36,59 +33,65 @@
                 android:padding="12dp"
                 android:layout_marginBottom="12dp" />
 
-            <!-- Filters: dropdown buttons in a horizontal scroller (fit text, not all-caps) -->
-            <HorizontalScrollView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
-                android:layout_marginBottom="12dp">
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="8dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <Spinner
+                    android:id="@+id/spinnerService"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_weight="1"
+                    android:entries="@array/service_filter_options"
+                    android:spinnerMode="dropdown"
+                    android:prompt="@string/prompt_service"
+                    android:padding="6dp" />
 
-                    <Button
-                        android:id="@+id/btnService"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="All services"
-                        android:textAllCaps="false"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:layout_marginEnd="8dp" />
+                <Spinner
+                    android:id="@+id/spinnerPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:entries="@array/price_sort_options"
+                    android:spinnerMode="dropdown"
+                    android:prompt="@string/prompt_price"
+                    android:padding="6dp" />
+            </LinearLayout>
 
-                    <Button
-                        android:id="@+id/btnPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Price ↑"
-                        android:textAllCaps="false"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:layout_marginEnd="8dp" />
+            <!-- Row 2: Rating + Availability -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="8dp">
 
-                    <Button
-                        android:id="@+id/btnRating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="All ratings"
-                        android:textAllCaps="false"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:layout_marginEnd="8dp" />
+                <Spinner
+                    android:id="@+id/spinnerRating"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/rating_filter_options"
+                    android:spinnerMode="dropdown"
+                    android:prompt="@string/prompt_rating"
+                    android:padding="6dp" />
 
-                    <Button
-                        android:id="@+id/btnAvailability"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="All availability"
-                        android:textAllCaps="false"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:layout_marginEnd="8dp" />
-                </LinearLayout>
-            </HorizontalScrollView>
+                <Spinner
+                    android:id="@+id/spinnerAvailability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:entries="@array/availability_filter_options"
+                    android:spinnerMode="dropdown"
+                    android:prompt="@string/prompt_availability"
+                    android:padding="6dp" />
+            </LinearLayout>
 
             <!-- Header -->
             <LinearLayout
@@ -118,7 +121,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Card 1 -->
                 <LinearLayout
                     android:id="@+id/cardSarah"
                     android:layout_width="match_parent"
@@ -137,7 +139,7 @@
                         android:layout_marginEnd="8dp"
                         android:contentDescription="Sarah Johnson profile"
                         android:clickable="true"
-                        android:focusable="true" />
+                        android:focusable="true"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -176,7 +178,6 @@
                         android:text="Book" />
                 </LinearLayout>
 
-                <!-- Card 2 -->
                 <LinearLayout
                     android:id="@+id/cardMaria"
                     android:layout_width="match_parent"
@@ -195,7 +196,7 @@
                         android:layout_marginEnd="8dp"
                         android:contentDescription="Maria Rodriguez profile"
                         android:clickable="true"
-                        android:focusable="true" />
+                        android:focusable="true"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -234,7 +235,6 @@
                         android:text="Book" />
                 </LinearLayout>
 
-                <!-- Card 3 -->
                 <LinearLayout
                     android:id="@+id/cardEmily"
                     android:layout_width="match_parent"
@@ -252,7 +252,7 @@
                         android:layout_marginEnd="8dp"
                         android:contentDescription="Emily Chen profile"
                         android:clickable="true"
-                        android:focusable="true" />
+                        android:focusable="true"/>
 
                     <LinearLayout
                         android:layout_width="0dp"

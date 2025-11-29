@@ -1,3 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App name shown under the icon -->
     <string name="app_name">GlamUp</string>
+
+    <!-- Prompts for Spinners (if not already there) -->
+    <string name="prompt_service">Service</string>
+    <string name="prompt_price">Price</string>
+    <string name="prompt_rating">Rating</string>
+    <string name="prompt_availability">Availability</string>
 </resources>
