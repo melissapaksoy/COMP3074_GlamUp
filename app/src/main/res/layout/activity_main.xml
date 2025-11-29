@@ -3,189 +3,231 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@drawable/bg_glamup_gradient">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="32dp">
 
-        <!-- Top bar title -->
+        <!-- Logo text -->
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tvLogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:text="GlamUp!"
-            android:textAppearance="@android:style/TextAppearance.Material.Headline"
+            android:textColor="@android:color/white"
+            android:fontFamily="cursive"
             android:textStyle="bold"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp" />
+            android:textSize="64sp"
+            android:paddingTop="32dp" />
 
-        <!-- Icon -->
-        <ImageView
-            android:id="@+id/imgClock"
-            android:layout_width="88dp"
-            android:layout_height="88dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:src="@android:drawable/ic_lock_idle_alarm"
-            app:tint="#9AA0A6" />
-
-        <!-- Headline -->
+        <!-- Tagline -->
         <TextView
-            android:id="@+id/tvWelcome"
+            android:id="@+id/tvTagline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="Welcome to GlamUp!"
-            android:textAppearance="@android:style/TextAppearance.Material.Large"
-            android:textStyle="bold" />
+            android:gravity="center_horizontal"
+            android:text="Find Your Sparkle"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="0dp" />
 
-        <!-- Subheadline -->
-        <TextView
-            android:id="@+id/tvSubtitle"
+
+        <!-- EMAIL CARD -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="center"
-            android:text="Find beauty services near you —\nnails, lashes, makeup"
-            android:textAppearance="@android:style/TextAppearance.Material.Medium"
-            android:lineSpacingExtra="2dp" />
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bg_input_card"
+            android:orientation="vertical"
+            android:padding="14dp">
 
-        <!-- Email -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="14sp"
+                android:textColor="#5B5464" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <EditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:padding="0dp"
+                    android:textColor="#2E2633"
+                    android:textColorHint="#A38CA9"
+                    android:hint="glamup@glamup.ca"
+                    android:inputType="textEmailAddress"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    android:tint="#7E6E8A"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
         <TextView
+            android:id="@+id/tvForgotEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Forgot Email?"
+            android:textSize="13sp"
+            android:textColor="#F6BEDB" />
+
+        <!-- PASSWORD CARD -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Email"
-            android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+            android:background="@drawable/bg_input_card"
+            android:orientation="vertical"
+            android:padding="14dp">
 
-        <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Enter your email"
-            android:inputType="textEmailAddress"
-            android:drawableEnd="@android:drawable/ic_dialog_email"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:background="@android:drawable/editbox_background_normal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textSize="14sp"
+                android:textColor="#5B5464" />
 
-        <!-- Password -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <EditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:padding="0dp"
+                    android:textColor="#2E2633"
+                    android:textColorHint="#A38CA9"
+                    android:hint="********"
+                    android:inputType="textPassword"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    android:tint="#7E6E8A"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:text="Password"
-            android:textAppearance="@android:style/TextAppearance.Material.Medium" />
-
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Enter your password"
-            android:inputType="textPassword"
-            android:drawableEnd="@android:drawable/ic_menu_help"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:background="@android:drawable/editbox_background_normal" />
-
-        <!-- Forgot password -->
-        <TextView
-            android:id="@+id/tvForgot"
+            android:id="@+id/tvForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="8dp"
-            android:text="Forgot password?"
-            android:textColor="#5F6368" />
+            android:layout_marginTop="4dp"
+            android:text="Forgot Password?"
+            android:textSize="13sp"
+            android:textColor="#F6BEDB" />
 
-        <!-- Sign In -->
+        <!-- LOGIN BUTTON (main CTA) -->
         <Button
-            android:id="@+id/btnAdminLogin"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Admin Login"
-            android:textAllCaps="false" />
+            android:layout_height="52dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bg_login_button"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp" />
 
-        <Button
-            android:id="@+id/btnBeautyProLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="BeautyPro Login"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btnClientLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Client Login"
-            android:textAllCaps="false" />
-
-
-        <!-- Divider with 'or' -->
+        <!-- OR DIVIDER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginTop="18dp"
-            android:layout_marginBottom="6dp">
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="12dp">
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"
-                android:background="#E0E0E0" />
+                android:background="#FAD8EB"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
                 android:text="or"
-                android:textColor="#9AA0A6" />
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"/>
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"
-                android:background="#E0E0E0" />
+                android:background="#FAD8EB"/>
         </LinearLayout>
 
-        <!-- Continue with Google -->
+        <!-- GOOGLE LOGIN -->
         <Button
             android:id="@+id/btnGoogle"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="  Continue with Google"
-            android:textAllCaps="false" />
+            android:background="@drawable/bg_social_button"
+            android:text="Continue with Google"
+            android:textColor="#2B1F33"
+            android:textAllCaps="false"
+            android:drawableStart="@drawable/ic_google"
+            android:drawablePadding="10dp"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"/>
 
-        <!-- Continue with Facebook -->
+        <!-- FACEBOOK LOGIN -->
         <Button
             android:id="@+id/btnFacebook"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:text="  Continue with Facebook"
-            android:textAllCaps="false" />
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_social_button"
+            android:text="Continue with Facebook"
+            android:textColor="#2B1F33"
+            android:textAllCaps="false"
+            android:drawableStart="@drawable/ic_facebook"
+            android:drawablePadding="10dp"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"/>
 
-        <!-- Bottom sign up -->
         <TextView
             android:id="@+id/tvSignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:gravity="center"
-            android:layout_marginTop="18dp"
-            android:text="Don't have an account? Sign up"
-            android:textAppearance="@android:style/TextAppearance.Material.Medium"
-            android:textColor="#5F6368" />
+            android:text="Don't have an account? Sign Up"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:paddingBottom="16dp"/>
 
     </LinearLayout>
 </ScrollView>
+

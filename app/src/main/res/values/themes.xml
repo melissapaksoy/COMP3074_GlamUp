@@ -6,6 +6,9 @@
         <item name="colorPrimaryVariant">@color/glam_pink_dark</item>
         <item name="colorOnPrimary">@android:color/white</item>
 
+        <item name="colorAccent">@color/glamPink</item>
+        <item name="android:textColor">@color/glamTextDark</item>
+
         <!-- Secondary brand color (used for floating action buttons, selection controls, etc.) -->
         <item name="colorSecondary">@color/glam_pink</item>
         <item name="colorSecondaryVariant">@color/glam_pink_dark</item>

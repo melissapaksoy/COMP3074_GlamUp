@@ -22,6 +22,10 @@
 
         <!-- Home screen -->
         <activity
+            android:name=".SignUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".HomeActivity"
             android:exported="true" />
 
