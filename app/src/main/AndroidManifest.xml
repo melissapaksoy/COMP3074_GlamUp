@@ -21,8 +21,8 @@
 
         <activity
             android:name=".SignUpActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:exported="false" />
+
         <activity
             android:name=".HomeActivity"
             android:exported="true" />
@@ -49,6 +49,11 @@
 
         <activity
             android:name=".RatingsActivity"
+            android:exported="false" />
+
+        <!-- ⭐ THIS WAS MISSING ⭐ -->
+        <activity
+            android:name=".NotificationActivity"
             android:exported="false" />
 
     </application>

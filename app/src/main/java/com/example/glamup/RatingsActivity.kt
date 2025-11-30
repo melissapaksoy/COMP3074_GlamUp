@@ -12,12 +12,15 @@ class RatingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ratings)
 
+        // ⭐ Enable footer navigation (HOME + NOTIF work now)
+        setupFooterNavigation(this)
+
         val ratingBar: RatingBar = findViewById(R.id.ratingBar)
         val reviewInput: EditText = findViewById(R.id.edtReview)
         val addReviewButton: Button = findViewById(R.id.btnAddReview)
 
         addReviewButton.setOnClickListener {
-            val rating = ratingBar.rating   // e.g. 4.0
+            val rating = ratingBar.rating
             val reviewText = reviewInput.text.toString()
 
             Toast.makeText(

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <!-- MAIN SCROLLABLE CONTENT -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="#FFFFFF"
         android:padding="16dp">
 
@@ -33,7 +36,7 @@
                 android:padding="12dp"
                 android:layout_marginBottom="12dp" />
 
-
+            <!-- Row 1: Service + Price -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,7 +51,6 @@
                     android:layout_weight="1"
                     android:entries="@array/service_filter_options"
                     android:spinnerMode="dropdown"
-                    android:prompt="@string/prompt_service"
                     android:padding="6dp" />
 
                 <Spinner
@@ -59,8 +61,8 @@
                     android:layout_marginStart="8dp"
                     android:entries="@array/price_sort_options"
                     android:spinnerMode="dropdown"
-                    android:prompt="@string/prompt_price"
                     android:padding="6dp" />
+
             </LinearLayout>
 
             <!-- Row 2: Rating + Availability -->
@@ -78,7 +80,6 @@
                     android:layout_weight="1"
                     android:entries="@array/rating_filter_options"
                     android:spinnerMode="dropdown"
-                    android:prompt="@string/prompt_rating"
                     android:padding="6dp" />
 
                 <Spinner
@@ -89,8 +90,8 @@
                     android:layout_marginStart="8dp"
                     android:entries="@array/availability_filter_options"
                     android:spinnerMode="dropdown"
-                    android:prompt="@string/prompt_availability"
                     android:padding="6dp" />
+
             </LinearLayout>
 
             <!-- Header -->
@@ -115,12 +116,14 @@
                     android:text="124 results" />
             </LinearLayout>
 
+            <!-- CARDS CONTAINER -->
             <LinearLayout
                 android:id="@+id/cardsContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <!-- SARAH CARD -->
                 <LinearLayout
                     android:id="@+id/cardSarah"
                     android:layout_width="match_parent"
@@ -178,6 +181,7 @@
                         android:text="Book" />
                 </LinearLayout>
 
+                <!-- MARIA CARD -->
                 <LinearLayout
                     android:id="@+id/cardMaria"
                     android:layout_width="match_parent"
@@ -235,6 +239,7 @@
                         android:text="Book" />
                 </LinearLayout>
 
+                <!-- EMILY CARD -->
                 <LinearLayout
                     android:id="@+id/cardEmily"
                     android:layout_width="match_parent"
@@ -290,7 +295,14 @@
                         android:layout_height="wrap_content"
                         android:text="Book" />
                 </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-</FrameLayout>
+
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer_client" />
+
+</LinearLayout>

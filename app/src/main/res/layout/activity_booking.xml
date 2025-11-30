@@ -1,155 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:background="#FFF8FC">
 
-    <LinearLayout
+    <!-- BACK BUTTON -->
+    <FrameLayout
+        android:id="@+id/backButtonContainerBooking"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless">
+
+        <ImageView
+            android:id="@+id/btnBackBooking"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/outline_arrow_back_24"
+            app:tint="#D81B60" />
+    </FrameLayout>
+
+
+    <!-- SCROLLABLE CONTENT -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <!-- BACK BUTTON -->
-        <FrameLayout
-            android:id="@+id/backButtonContainerBooking"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:layout_marginBottom="16dp">
-
-            <ImageView
-                android:id="@+id/btnBackBooking"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:src="@drawable/outline_arrow_back_24"
-                app:tint="#D81B60" />
-
-        </FrameLayout>
-
-        <!-- PAGE TITLE -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Book an Appointment"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#D81B60"
-            android:layout_marginBottom="20dp" />
-
-        <!-- SECTION: SERVICE -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Service"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="#880E4F"
-            android:layout_marginBottom="8dp" />
-
-        <Spinner
-            android:id="@+id/spinnerService"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@drawable/input_box"
-            android:padding="12dp"
-            android:layout_marginBottom="20dp" />
-
-        <!-- SECTION: DATE -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Date"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="#880E4F"
-            android:layout_marginBottom="8dp" />
-
-        <Button
-            android:id="@+id/btnPickDate"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:text="Choose Date"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:backgroundTint="#F8BBD0"
-            android:textColor="#880E4F" />
-
-        <TextView
-            android:id="@+id/txtSelectedDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No date selected"
-            android:textSize="13sp"
-            android:textColor="#757575"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="20dp" />
-
-        <!-- SECTION: TIME -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Time"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="#880E4F"
-            android:layout_marginBottom="10dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="20dp">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginBottom="30dp">
+            android:orientation="vertical">
 
+            <!-- PAGE TITLE -->
             <TextView
-                android:id="@+id/tvTime1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10:00 AM"
-                android:background="@drawable/time_chip"
-                android:padding="12dp"
-                android:layout_margin="6dp"
-                android:textColor="#555"
-                android:textStyle="bold" />
+                android:text="Book an Appointment"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#D81B60"
+                android:layout_marginBottom="20dp" />
 
+            <!-- SECTION: SERVICE -->
             <TextView
-                android:id="@+id/tvTime2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1:00 PM"
-                android:background="@drawable/time_chip"
-                android:padding="12dp"
-                android:layout_margin="6dp"
-                android:textColor="#555"
-                android:textStyle="bold" />
+                android:text="Select Service"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#880E4F"
+                android:layout_marginBottom="8dp" />
 
+            <Spinner
+                android:id="@+id/spinnerService"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/input_box"
+                android:padding="12dp"
+                android:layout_marginBottom="20dp" />
+
+
+            <!-- SECTION: DATE -->
             <TextView
-                android:id="@+id/tvTime3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3:00 PM"
-                android:background="@drawable/time_chip"
-                android:padding="12dp"
-                android:layout_margin="6dp"
-                android:textColor="#555"
-                android:textStyle="bold" />
+                android:text="Select Date"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#880E4F"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnPickDate"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Choose Date"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:backgroundTint="#F8BBD0"
+                android:textColor="#880E4F" />
+
+            <TextView
+                android:id="@+id/txtSelectedDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No date selected"
+                android:textSize="13sp"
+                android:textColor="#757575"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp" />
+
+
+            <!-- SECTION: TIME -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Time"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#880E4F"
+                android:layout_marginBottom="10dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="30dp">
+
+                <TextView
+                    android:id="@+id/tvTime1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10:00 AM"
+                    android:background="@drawable/time_chip"
+                    android:padding="12dp"
+                    android:layout_margin="6dp"
+                    android:textColor="#555"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTime2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1:00 PM"
+                    android:background="@drawable/time_chip"
+                    android:padding="12dp"
+                    android:layout_margin="6dp"
+                    android:textColor="#555"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTime3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3:00 PM"
+                    android:background="@drawable/time_chip"
+                    android:padding="12dp"
+                    android:layout_margin="6dp"
+                    android:textColor="#555"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <!-- CONFIRM BUTTON -->
+            <Button
+                android:id="@+id/btnConfirmBooking"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Confirm Booking"
+                android:backgroundTint="#D81B60"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textAllCaps="false" />
+
         </LinearLayout>
 
-        <!-- CONFIRM BUTTON -->
-        <Button
-            android:id="@+id/btnConfirmBooking"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:text="Confirm Booking"
-            android:backgroundTint="#D81B60"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:textAllCaps="false" />
+    </ScrollView>
 
-    </LinearLayout>
-</ScrollView>
+
+    <!-- ⭐ FIXED FOOTER -->
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer_client" />
+
+</LinearLayout>

@@ -11,6 +11,9 @@ class BookingConfirmationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking_confirmation)
 
+        // ⭐ Enable footer navigation
+        setupFooterNavigation(this)
+
         // Get data from intent
         val service = intent.getStringExtra("SERVICE") ?: "Unknown Service"
         val date = intent.getStringExtra("DATE") ?: "Unknown Date"
@@ -27,7 +30,7 @@ class BookingConfirmationActivity : AppCompatActivity() {
         txtDate.text = "Date: $date"
         txtTime.text = "Time: $time"
 
-        // Button action
+        // Button action → Back to Home
         btnBack.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
