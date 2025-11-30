@@ -76,8 +76,8 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@android:drawable/ic_menu_close_clear_cancel"
-                    android:tint="#7E6E8A"
-                    android:layout_marginStart="8dp"/>
+                    android:layout_marginStart="8dp"
+                    app:tint="#7E6E8A" />
             </LinearLayout>
         </LinearLayout>
 
@@ -129,8 +129,8 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@android:drawable/ic_menu_close_clear_cancel"
-                    android:tint="#7E6E8A"
-                    android:layout_marginStart="8dp"/>
+                    android:layout_marginStart="8dp"
+                    app:tint="#7E6E8A" />
             </LinearLayout>
         </LinearLayout>
 

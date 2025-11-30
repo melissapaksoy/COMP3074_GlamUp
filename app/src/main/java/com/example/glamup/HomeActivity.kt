@@ -61,9 +61,18 @@ class HomeActivity : AppCompatActivity() {
 
         // Book buttons -> BookingActivity
         val bookIntent = Intent(this, BookingActivity::class.java)
-        findViewById<Button>(R.id.btnBook1).setOnClickListener { startActivity(bookIntent) }
-        findViewById<Button>(R.id.btnBook2).setOnClickListener { startActivity(bookIntent) }
-        findViewById<Button>(R.id.btnBook3).setOnClickListener { startActivity(bookIntent) }
+        findViewById<Button>(R.id.btnBook1).setOnClickListener {
+            openProfile("Sarah Johnson")
+        }
+
+        findViewById<Button>(R.id.btnBook2).setOnClickListener {
+            openProfile("Maria Rodriguez")
+        }
+
+        findViewById<Button>(R.id.btnBook3).setOnClickListener {
+            openProfile("Emily Chen")
+        }
+
 
         //  Dummy data
         pros = listOf(
