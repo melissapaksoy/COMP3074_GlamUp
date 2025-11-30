@@ -1,241 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFF3F8">
+    android:layout_height="match_parent">
 
-    <!-- BACK BUTTON -->
-    <FrameLayout
-        android:id="@+id/backButtonContainer"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless">
-
-        <ImageView
-            android:id="@+id/btnBackDashboard"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:src="@drawable/outline_arrow_back_24"
-            app:tint="#D81B60" />
-    </FrameLayout>
-
-    <!-- SCROLLABLE CONTENT -->
+    <!-- Scrollable content -->
     <ScrollView
+        android:id="@+id/scrollContent"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:layout_above="@+id/profileSection">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
-
-            <!-- PROFILE CARD -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/pink_gradient_background"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical"
-                android:elevation="4dp"
-                android:layout_marginBottom="20dp">
-
-                <ImageView
-                    android:id="@+id/imgProPhoto"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:src="@drawable/maria_rodriguez"
-                    android:background="#FFFFFF"
-                    android:padding="4dp"
-                    android:scaleType="centerCrop"
-                    android:layout_marginEnd="16dp"
-                    android:clipToOutline="true" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tvProName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sophia Martinez"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvProRole"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Beauty Professional"
-                        android:textColor="#FFE6F2"
-                        android:textSize="14sp"
-                        android:background="#33FFFFFF"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:paddingTop="3dp"
-                        android:paddingBottom="3dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp" />
-
-                    <TextView
-                        android:id="@+id/tvProRating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="⭐ 4.8 • 120 reviews"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- QUICK ACTION CARDS (2x2) -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:layout_marginBottom="12dp">
-
-                    <LinearLayout
-                        android:id="@+id/cardManageServices"
-                        android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="#FFFFFF"
-                        android:padding="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:elevation="2dp"
-                        android:clickable="true"
-                        android:focusable="true">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="✂️"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Manage Services"
-                            android:textColor="#D81B60"
-                            android:textSize="13sp"
-                            android:layout_marginTop="4dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/cardSetAvailability"
-                        android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="#FFFFFF"
-                        android:padding="8dp"
-                        android:layout_marginStart="8dp"
-                        android:elevation="2dp"
-                        android:clickable="true"
-                        android:focusable="true">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="📅"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Set Availability"
-                            android:textColor="#D81B60"
-                            android:textSize="13sp"
-                            android:layout_marginTop="4dp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:layout_marginBottom="20dp">
-
-                    <LinearLayout
-                        android:id="@+id/cardPortfolio"
-                        android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="#FFFFFF"
-                        android:padding="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:elevation="2dp"
-                        android:clickable="true"
-                        android:focusable="true">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🖼️"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Portfolio"
-                            android:textColor="#D81B60"
-                            android:textSize="13sp"
-                            android:layout_marginTop="4dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/cardClientReviews"
-                        android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="#FFFFFF"
-                        android:padding="8dp"
-                        android:layout_marginStart="8dp"
-                        android:elevation="2dp"
-                        android:clickable="true"
-                        android:focusable="true">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="⭐"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Client Reviews"
-                            android:textColor="#D81B60"
-                            android:textSize="13sp"
-                            android:layout_marginTop="4dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <!-- EARNINGS SUMMARY -->
             <TextView
@@ -243,95 +22,150 @@
                 android:layout_height="wrap_content"
                 android:text="Earnings Summary"
                 android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="#333333"
+                android:textSize="18sp"
                 android:layout_marginBottom="8dp" />
 
-            <LinearLayout
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:alignmentMode="alignMargins"
+                android:columnOrderPreserved="false"
+                android:useDefaultMargins="true">
+
+                <!-- Today -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:background="#EEEEEE"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtToday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$245"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- This Week -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:background="#EEEEEE"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="This Week"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtWeek"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$1280"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- This Month -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:background="#EEEEEE"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="This Month"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$4560"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Total -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:background="#EEEEEE"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$12340"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </GridLayout>
+
+            <!-- QUICK ACTIONS -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quick Actions"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="12dp" />
+
+            <LinearLayout
                 android:orientation="horizontal"
-                android:weightSum="3"
-                android:layout_marginBottom="20dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:layout_marginBottom="16dp">
 
-                <LinearLayout
+                <Button
+                    android:id="@+id/btnManageAvailability"
                     android:layout_width="0dp"
-                    android:layout_height="70dp"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:background="#FFFFFF"
-                    android:gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:padding="6dp">
+                    android:layout_height="wrap_content"
+                    android:text="Manage Availability" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Upcoming"
-                        android:textSize="12sp"
-                        android:textColor="#777777" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="3"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#333333" />
-                </LinearLayout>
-
-                <LinearLayout
+                <Button
+                    android:id="@+id/btnAddService"
                     android:layout_width="0dp"
-                    android:layout_height="70dp"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:background="#FFFFFF"
-                    android:gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:padding="6dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total Earnings"
-                        android:textSize="12sp"
-                        android:textColor="#777777" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$12,340"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#333333" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:background="#FFFFFF"
-                    android:gravity="center"
-                    android:layout_marginStart="8dp"
-                    android:padding="6dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pending Payout"
-                        android:textSize="12sp"
-                        android:textColor="#777777" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$400"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#333333" />
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:text="Add Service"
+                    android:layout_marginStart="8dp" />
             </LinearLayout>
 
             <!-- UPCOMING BOOKINGS -->
@@ -341,443 +175,116 @@
                 android:text="Upcoming Bookings"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="#333333"
                 android:layout_marginBottom="8dp" />
 
-            <!-- Booking 1 -->
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:layout_marginBottom="8dp"
-                android:elevation="2dp">
+                android:text="Sarah Johnson - Shellac Manicure &amp; Nail Art - Today 2:30 PM - $120"
+                android:padding="8dp"
+                android:background="#EEEEEE"
+                android:layout_marginBottom="8dp" />
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/client1"
-                    android:layout_marginEnd="10dp"
-                    android:background="#FFE6F0"
-                    android:padding="4dp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sarah Johnson"
-                        android:textStyle="bold"
-                        android:textColor="#333333"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Shellac Manicure • Nail Art"
-                        android:textColor="#777777"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Today"
-                        android:textColor="#777777"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2:30 PM"
-                        android:textColor="#333333"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Booking 2 -->
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:layout_marginBottom="20dp"
-                android:elevation="2dp">
+                android:text="Emily Davis - Manicure &amp; Pedicure - Tomorrow 9:00 AM - $85"
+                android:padding="8dp"
+                android:background="#EEEEEE"
+                android:layout_marginBottom="8dp" />
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/client2"
-                    android:layout_marginEnd="10dp"
-                    android:background="#FFE6F0"
-                    android:padding="4dp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Emily Davis"
-                        android:textStyle="bold"
-                        android:textColor="#333333"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Manicure • Pedicure"
-                        android:textColor="#777777"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tomorrow"
-                        android:textColor="#777777"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="9:00 AM"
-                        android:textColor="#333333"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- NEW REQUESTS SECTION -->
+            <!-- NEW REQUESTS -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Requests"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="#333333"
+                android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp" />
 
-            <!-- Request 1: Lisa Chen -->
+            <!-- Request 1 -->
             <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_marginBottom="10dp"
-                android:elevation="2dp">
+                android:layout_marginBottom="8dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_weight="1"
+                    android:text="Lisa Chen - Eyelash Application - Jan 15, 1:00 PM" />
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/client3"
-                        android:layout_marginEnd="10dp"
-                        android:background="#FFE6F0"
-                        android:padding="4dp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lisa Chen"
-                            android:textStyle="bold"
-                            android:textColor="#333333"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Eyelash Application"
-                            android:textColor="#777777"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Jan 15"
-                            android:textColor="#777777"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1:00 PM"
-                            android:textColor="#333333"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/btnAccept1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="8dp">
+                    android:text="Accept" />
 
-                    <Button
-                        android:id="@+id/btnAccept1"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:text="ACCEPT"
-                        android:textStyle="bold"
-                        android:textColor="#FFFFFF"
-                        android:backgroundTint="#D81B60"
-                        android:layout_marginEnd="8dp" />
-
-                    <Button
-                        android:id="@+id/btnDecline1"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:text="DECLINE"
-                        android:textStyle="bold"
-                        android:textColor="#D81B60"
-                        android:backgroundTint="#FFE1F0" />
-                </LinearLayout>
+                <Button
+                    android:id="@+id/btnDecline1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Decline"
+                    android:layout_marginStart="4dp" />
             </LinearLayout>
 
-            <!-- Request 2: Rachel Adams -->
+            <!-- Request 2 -->
             <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_marginBottom="10dp"
-                android:elevation="2dp">
+                android:layout_marginBottom="8dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_weight="1"
+                    android:text="Rachel Adams - Acrylic Nail Removal - Jan 17, 10:00 AM" />
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/client4"
-                        android:layout_marginEnd="10dp"
-                        android:background="#FFE6F0"
-                        android:padding="4dp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Rachel Adams"
-                            android:textStyle="bold"
-                            android:textColor="#333333"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Acrylic Nail Removal • Manicure"
-                            android:textColor="#777777"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Jan 17"
-                            android:textColor="#777777"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="10:00 AM"
-                            android:textColor="#333333"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/btnAccept2"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="8dp">
+                    android:text="Accept" />
 
-                    <Button
-                        android:id="@+id/btnAccept2"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:text="ACCEPT"
-                        android:textStyle="bold"
-                        android:textColor="#FFFFFF"
-                        android:backgroundTint="#D81B60"
-                        android:layout_marginEnd="8dp" />
-
-                    <Button
-                        android:id="@+id/btnDecline2"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:text="DECLINE"
-                        android:textStyle="bold"
-                        android:textColor="#D81B60"
-                        android:backgroundTint="#FFE1F0" />
-                </LinearLayout>
+                <Button
+                    android:id="@+id/btnDecline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Decline"
+                    android:layout_marginStart="4dp" />
             </LinearLayout>
 
-            <!-- Request 3: Amira Patel -->
+            <!-- Request 3 -->
             <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_marginBottom="40dp"
-                android:elevation="2dp">
+                android:layout_marginBottom="8dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_weight="1"
+                    android:text="Amira Patel - Bridal Makeup - Jan 20, 11:00 AM" />
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/client5"
-                        android:layout_marginEnd="10dp"
-                        android:background="#FFE6F0"
-                        android:padding="4dp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Amira Patel"
-                            android:textStyle="bold"
-                            android:textColor="#333333"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bridal Makeup • Pedicure"
-                            android:textColor="#777777"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Jan 20"
-                            android:textColor="#777777"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="11:30 AM"
-                            android:textColor="#333333"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/btnAccept3"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="8dp">
+                    android:text="Accept" />
 
-                    <Button
-                        android:id="@+id/btnAccept3"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:text="ACCEPT"
-                        android:textStyle="bold"
-                        android:textColor="#FFFFFF"
-                        android:backgroundTint="#D81B60"
-                        android:layout_marginEnd="8dp" />
-
-                    <Button
-                        android:id="@+id/btnDecline3"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:text="DECLINE"
-                        android:textStyle="bold"
-                        android:textColor="#D81B60"
-                        android:backgroundTint="#FFE1F0" />
-                </LinearLayout>
+                <Button
+                    android:id="@+id/btnDecline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Decline"
+                    android:layout_marginStart="4dp" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
-</LinearLayout>
+
+</RelativeLayout>

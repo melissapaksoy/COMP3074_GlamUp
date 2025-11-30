@@ -1,72 +1,59 @@
 package com.example.glamup
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class DashboardActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        // Back button
-        val backButton = findViewById<FrameLayout>(R.id.backButtonContainer)
-        backButton.setOnClickListener { finish() }
+        // Quick Actions
+        val btnManageAvailability: Button = findViewById(R.id.btnManageAvailability)
+        val btnAddService: Button = findViewById(R.id.btnAddService)
 
-        // Quick action cards
-        val cardManageServices = findViewById<LinearLayout>(R.id.cardManageServices)
-        val cardSetAvailability = findViewById<LinearLayout>(R.id.cardSetAvailability)
-        val cardPortfolio = findViewById<LinearLayout>(R.id.cardPortfolio)
-        val cardClientReviews = findViewById<LinearLayout>(R.id.cardClientReviews)
+        // New Requests
+        val btnAccept1: Button = findViewById(R.id.btnAccept1)
+        val btnDecline1: Button = findViewById(R.id.btnDecline1)
+        val btnAccept2: Button = findViewById(R.id.btnAccept2)
+        val btnDecline2: Button = findViewById(R.id.btnDecline2)
+        val btnAccept3: Button = findViewById(R.id.btnAccept3)
+        val btnDecline3: Button = findViewById(R.id.btnDecline3)
 
-        cardManageServices.setOnClickListener {
-            Toast.makeText(this, "Manage Services (UI only)", Toast.LENGTH_SHORT).show()
+        // Handle Quick Actions
+        btnManageAvailability.setOnClickListener {
+            Toast.makeText(this, "Manage Availability clicked", Toast.LENGTH_SHORT).show()
         }
 
-        cardSetAvailability.setOnClickListener {
-            Toast.makeText(this, "Set Availability (UI only)", Toast.LENGTH_SHORT).show()
+        btnAddService.setOnClickListener {
+            Toast.makeText(this, "Add Service clicked", Toast.LENGTH_SHORT).show()
         }
 
-        cardPortfolio.setOnClickListener {
-            Toast.makeText(this, "Portfolio Management (UI only)", Toast.LENGTH_SHORT).show()
-        }
-
-        cardClientReviews.setOnClickListener {
-            startActivity(Intent(this, RatingsActivity::class.java))
-        }
-
-        // New Requests buttons (just show toasts)
-        val btnAccept1 = findViewById<Button>(R.id.btnAccept1)
-        val btnDecline1 = findViewById<Button>(R.id.btnDecline1)
-        val btnAccept2 = findViewById<Button>(R.id.btnAccept2)
-        val btnDecline2 = findViewById<Button>(R.id.btnDecline2)
-        val btnAccept3 = findViewById<Button>(R.id.btnAccept3)
-        val btnDecline3 = findViewById<Button>(R.id.btnDecline3)
-
+        // Handle New Requests
         btnAccept1.setOnClickListener {
-            Toast.makeText(this, "Accepted Lisa Chen (demo only)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Request 1 Accepted", Toast.LENGTH_SHORT).show()
         }
+
         btnDecline1.setOnClickListener {
-            Toast.makeText(this, "Declined Lisa Chen (demo only)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Request 1 Declined", Toast.LENGTH_SHORT).show()
         }
 
         btnAccept2.setOnClickListener {
-            Toast.makeText(this, "Accepted Rachel Adams (demo only)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Request 2 Accepted", Toast.LENGTH_SHORT).show()
         }
+
         btnDecline2.setOnClickListener {
-            Toast.makeText(this, "Declined Rachel Adams (demo only)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Request 2 Declined", Toast.LENGTH_SHORT).show()
         }
 
         btnAccept3.setOnClickListener {
-            Toast.makeText(this, "Accepted Amira Patel (demo only)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Request 3 Accepted", Toast.LENGTH_SHORT).show()
         }
+
         btnDecline3.setOnClickListener {
-            Toast.makeText(this, "Declined Amira Patel (demo only)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Request 3 Declined", Toast.LENGTH_SHORT).show()
         }
     }
 }

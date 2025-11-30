@@ -1,174 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF3F8">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- SAME BACK BUTTON AS PROFILE -->
-    <FrameLayout
-        android:id="@+id/backButtonContainer"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless">
+    <TextView
+        android:id="@+id/txtRatingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ratings &amp; Reviews"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingBottom="16dp" />
 
-        <ImageView
-            android:id="@+id/btnBackRatings"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:src="@drawable/outline_arrow_back_24"
-            app:tint="#D81B60" />
-    </FrameLayout>
+    <!-- Placeholder for reviews -->
+    <TextView
+        android:id="@+id/txtReviewSample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⭐️⭐️⭐️⭐️☆ - Great service!"
+        android:paddingTop="8dp" />
 
-    <!-- SCROLLABLE CONTENT -->
-    <ScrollView
+    <TextView
+        android:id="@+id/txtReviewSample2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⭐️⭐️⭐️⭐️⭐️ - Amazing experience, highly recommend!"
+        android:paddingTop="8dp" />
+
+    <!-- Later: Replace with RecyclerView or ListView for dynamic reviews -->
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1.0"
+        android:layout_marginTop="16dp" />
+
+
+    <EditText
+        android:id="@+id/edtReview"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:hint="Write your review here"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:gravity="top"
+        android:layout_marginTop="16dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
 
-            <!-- HEADER CARD (similar to profile) -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/pink_gradient_background"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical"
-                android:elevation="4dp"
-                android:layout_marginBottom="20dp">
+    <Button
+        android:id="@+id/btnAddReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add a Review"
+        android:layout_marginTop="24dp" />
 
-                <ImageView
-                    android:id="@+id/imgProfilePhotoRatings"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/maria_rodriguez"
-                    android:background="#FFFFFF"
-                    android:padding="4dp"
-                    android:scaleType="centerCrop"
-                    android:layout_marginEnd="16dp"
-                    android:clipToOutline="true" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="12dp" />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous Reviews"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
 
-                    <TextView
-                        android:id="@+id/txtProfileNameRatings"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Maria Rodriguez"
-                        android:textColor="#FFFFFF"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/txtProfessionRatings"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nail Artist"
-                        android:textColor="#FFE6F2"
-                        android:textSize="14sp" />
+    <TextView
+        android:id="@+id/txtReview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⭐️⭐️⭐️⭐️⭐️ - Excellent service! Highly recommend."
+        android:padding="8dp"
+        android:background="#EEEEEE"
+        android:layout_marginBottom="8dp" />
 
-                    <TextView
-                        android:id="@+id/txtAverageRating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="⭐ 4.8 • 120 reviews"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp" />
-                </LinearLayout>
-            </LinearLayout>
+    <TextView
+        android:id="@+id/txtReview2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⭐️⭐️⭐️⭐️ - Good experience, but response time could improve."
+        android:padding="8dp"
+        android:background="#EEEEEE" />
 
-            <!-- TITLE -->
-            <TextView
-                android:id="@+id/txtRatingsTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ratings &amp; Reviews"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#D81B60"
-                android:layout_marginBottom="12dp" />
-
-            <!-- Dynamic reviews get added here -->
-            <LinearLayout
-                android:id="@+id/reviewsContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="16dp" />
-
-            <!-- DIVIDER -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#CCCCCC"
-                android:layout_marginBottom="16dp" />
-
-            <!-- YOUR REVIEW SECTION -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add Your Review"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="#D81B60"
-                android:layout_marginBottom="8dp" />
-
-            <RatingBar
-                android:id="@+id/ratingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:numStars="5"
-                android:stepSize="1.0"
-                android:layout_marginTop="4dp" />
-
-            <EditText
-                android:id="@+id/edtReview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Write your review here"
-                android:inputType="textMultiLine"
-                android:lines="3"
-                android:gravity="top"
-                android:background="#FFFFFF"
-                android:padding="8dp"
-                android:layout_marginTop="12dp" />
-
-            <Button
-                android:id="@+id/btnAddReview"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="SUBMIT REVIEW"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:backgroundTint="#D81B60"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/tvYourReview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="12dp"
-                android:textColor="#555555"
-                android:textSize="14sp"
-                android:visibility="gone" />
-
-        </LinearLayout>
-    </ScrollView>
 
 </LinearLayout>
