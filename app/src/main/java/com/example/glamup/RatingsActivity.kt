@@ -7,12 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RatingsActivity : AppCompatActivity() {
 
-    private val db = Firebase.firestore
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+
     private val auth by lazy { FirebaseAuth.getInstance() }
 
     private lateinit var reviewsContainer: LinearLayout
