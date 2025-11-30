@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFF3F8">
 
-    <!-- SAME BACK BUTTON AS PROFILE -->
+    <!-- BACK BUTTON -->
     <FrameLayout
         android:id="@+id/backButtonContainer"
         android:layout_width="48dp"
@@ -37,7 +37,7 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- HEADER CARD (similar to profile) -->
+            <!-- HEADER CARD -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                 android:textColor="#D81B60"
                 android:layout_marginBottom="12dp" />
 
-            <!-- Dynamic reviews get added here -->
+            <!-- DYNAMIC REVIEWS ADDED HERE -->
             <LinearLayout
                 android:id="@+id/reviewsContainer"
                 android:layout_width="match_parent"
@@ -118,7 +118,7 @@
                 android:background="#CCCCCC"
                 android:layout_marginBottom="16dp" />
 
-            <!-- YOUR REVIEW SECTION -->
+            <!-- ADD REVIEW TITLE -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -128,6 +128,7 @@
                 android:textColor="#D81B60"
                 android:layout_marginBottom="8dp" />
 
+            <!-- RATING BAR -->
             <RatingBar
                 android:id="@+id/ratingBar"
                 android:layout_width="wrap_content"
@@ -136,6 +137,7 @@
                 android:stepSize="1.0"
                 android:layout_marginTop="4dp" />
 
+            <!-- REVIEW INPUT -->
             <EditText
                 android:id="@+id/edtReview"
                 android:layout_width="match_parent"
@@ -148,6 +150,7 @@
                 android:padding="8dp"
                 android:layout_marginTop="12dp" />
 
+            <!-- SUBMIT BUTTON -->
             <Button
                 android:id="@+id/btnAddReview"
                 android:layout_width="match_parent"
@@ -159,6 +162,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp" />
 
+            <!-- USER REVIEW FEEDBACK -->
             <TextView
                 android:id="@+id/tvYourReview"
                 android:layout_width="match_parent"
@@ -170,5 +174,10 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- ⭐ REQUIRED FOOTER (Prevents crashes) ⭐ -->
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer_client" />
 
 </LinearLayout>

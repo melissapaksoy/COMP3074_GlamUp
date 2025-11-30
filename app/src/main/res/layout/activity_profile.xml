@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFF3F8">
 
-    <!-- FIXED BACK BUTTON (always clickable) -->
+    <!-- FIXED BACK BUTTON -->
     <FrameLayout
         android:id="@+id/backButtonContainer"
         android:layout_width="48dp"
@@ -37,7 +37,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
-
 
             <!-- HEADER CARD -->
             <LinearLayout
@@ -94,6 +93,7 @@
 
                 </LinearLayout>
             </LinearLayout>
+
 
 
             <!-- ABOUT SECTION -->
@@ -223,7 +223,6 @@
                 android:gravity="center"
                 android:layout_marginBottom="20dp">
 
-                <!-- 9 gallery images (unchanged) -->
                 <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails1" android:scaleType="centerCrop" android:layout_margin="6dp"/>
                 <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails2" android:scaleType="centerCrop" android:layout_margin="6dp"/>
                 <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nails3" android:scaleType="centerCrop" android:layout_margin="6dp"/>
@@ -260,5 +259,10 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <!-- ⭐ FIXED FOOTER (added) -->
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer_client" />
 
 </LinearLayout>

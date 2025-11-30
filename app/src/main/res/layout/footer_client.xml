@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/footerBar"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="8dp"
+    android:background="#FAC1E9"
+    android:elevation="8dp">
+
+    <!-- Home -->
+    <LinearLayout
+        android:id="@+id/navHome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:src="@drawable/outline_chalet_24"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:tint="#D81B60" />
+    </LinearLayout>
+
+    <!-- Notifications -->
+    <LinearLayout
+        android:id="@+id/navNotif"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:src="@drawable/outline_circle_notifications_24"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:tint="#D81B60"/>
+    </LinearLayout>
+
+</LinearLayout>
