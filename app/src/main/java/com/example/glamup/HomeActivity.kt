@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.ImageButton
+
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
@@ -42,6 +44,8 @@ class HomeActivity : AppCompatActivity() {
 
         // ⭐ Your footer navigation
         setupFooterNavigation(this)
+
+
 
         // ===== Views =====
         cardsContainer = findViewById(R.id.cardsContainer)
