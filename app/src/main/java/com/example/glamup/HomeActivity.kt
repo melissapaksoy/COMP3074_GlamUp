@@ -40,10 +40,10 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        // ⭐ Activate footer navigation
+        // ⭐ Your footer navigation
         setupFooterNavigation(this)
 
-        // ====== Views ======
+        // ===== Views =====
         cardsContainer = findViewById(R.id.cardsContainer)
         searchBox = findViewById(R.id.searchBox)
 
@@ -52,28 +52,41 @@ class HomeActivity : AppCompatActivity() {
         spinnerRating = findViewById(R.id.spinnerRating)
         spinnerAvailability = findViewById(R.id.spinnerAvailability)
 
-        val cardSarah = findViewById<LinearLayout>(R.id.cardSarah)
-        val cardMaria = findViewById<LinearLayout>(R.id.cardMaria)
-        val cardEmily = findViewById<LinearLayout>(R.id.cardEmily)
+        // ===== Cards (your IDs) =====
+        val cardSarah = findViewById<LinearLayout>(R.id.card_sarah)
+        val cardMaria = findViewById<LinearLayout>(R.id.card_maria)
+        val cardEmily = findViewById<LinearLayout>(R.id.card_emily_chen)
 
-        // Profile images
-        findViewById<ImageView>(R.id.imgSarah).setOnClickListener { openProfile("Sarah Johnson") }
-        findViewById<ImageView>(R.id.imgMaria).setOnClickListener { openProfile("Maria Rodriguez") }
-        findViewById<ImageView>(R.id.imgEmily).setOnClickListener { openProfile("Emily Chen") }
+        // ===== Image → Profile =====
+        findViewById<ImageView>(R.id.imgSarah).setOnClickListener {
+            openProfile("Sarah Johnson")
+        }
+        findViewById<ImageView>(R.id.imgMaria).setOnClickListener {
+            openProfile("Maria Rodriguez")
+        }
+        findViewById<ImageView>(R.id.imgEmily).setOnClickListener {
+            openProfile("Emily Chen")
+        }
 
-        // BOOK buttons → open profile
-        findViewById<Button>(R.id.btnBook1).setOnClickListener { openProfile("Sarah Johnson") }
-        findViewById<Button>(R.id.btnBook2).setOnClickListener { openProfile("Maria Rodriguez") }
-        findViewById<Button>(R.id.btnBook3).setOnClickListener { openProfile("Emily Chen") }
+        // ===== Book buttons → Profile =====
+        findViewById<Button>(R.id.btnBook1).setOnClickListener {
+            openProfile("Sarah Johnson")
+        }
+        findViewById<Button>(R.id.btnBook2).setOnClickListener {
+            openProfile("Maria Rodriguez")
+        }
+        findViewById<Button>(R.id.btnBook3).setOnClickListener {
+            openProfile("Emily Chen")
+        }
 
-        // Dummy data
+        // ===== Dummy Data (same as friend) =====
         pros = listOf(
             Pro("Sarah Johnson", "hair", 85, 4.9, true, cardSarah),
             Pro("Maria Rodriguez", "nails", 45, 4.8, false, cardMaria),
             Pro("Emily Chen", "makeup", 95, 5.0, true, cardEmily)
         )
 
-        // Search
+        // ===== Search =====
         searchBox.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -82,7 +95,7 @@ class HomeActivity : AppCompatActivity() {
             }
         })
 
-        // Spinners
+        // ===== Spinners =====
         spinnerService.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 serviceFilter = when (position) {
@@ -98,7 +111,7 @@ class HomeActivity : AppCompatActivity() {
 
         spinnerPrice.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                priceAsc = (position == 0)
+                priceAsc = (position == 0) // Low→High or High→Low
                 applyFilters()
             }
             override fun onNothingSelected(parent: AdapterView<*>) {}
@@ -120,14 +133,20 @@ class HomeActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
 
+        // Initial load
         applyFilters()
     }
 
+    // ====== Filtering System (same as your friend, adjusted to your IDs) ======
     private fun applyFilters() {
         val q = searchBox.text?.toString()?.trim()?.lowercase().orEmpty()
 
         var filtered = pros.filter { p ->
-            val searchMatch = q.isEmpty() || p.name.lowercase().contains(q) || p.role.lowercase().contains(q)
+            val searchMatch =
+                q.isEmpty() ||
+                        p.name.lowercase().contains(q) ||
+                        p.role.lowercase().contains(q)
+
             val serviceMatch = serviceFilter == null || p.role == serviceFilter
 
             val ratingMatch = when (minRatingMode) {
@@ -144,17 +163,23 @@ class HomeActivity : AppCompatActivity() {
             searchMatch && serviceMatch && ratingMatch && availabilityMatch
         }
 
-        filtered = if (priceAsc) filtered.sortedBy { it.price } else filtered.sortedByDescending { it.price }
+        filtered = if (priceAsc) filtered.sortedBy { it.price }
+        else filtered.sortedByDescending { it.price }
 
+        // Hide all cards first
         pros.forEach { it.card.visibility = View.GONE }
+
+        // Clear container
         cardsContainer.removeAllViews()
 
+        // Add filtered cards
         filtered.forEach { p ->
             p.card.visibility = View.VISIBLE
             cardsContainer.addView(p.card)
         }
     }
 
+    // ====== Profile ======
     private fun openProfile(name: String) {
         val i = Intent(this, ProfileActivity::class.java)
         i.putExtra("profile_name", name)
