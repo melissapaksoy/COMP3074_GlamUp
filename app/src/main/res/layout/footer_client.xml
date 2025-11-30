@@ -40,4 +40,30 @@
             app:tint="#D81B60"/>
     </LinearLayout>
 
+    <!-- LOGOUT -->
+    <!-- LOGOUT BUTTON -->
+    <LinearLayout
+        android:id="@+id/footerLogout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/btnLogoutFooter"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Logout"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#D81B60"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:elevation="4dp"
+            />
+
+    </LinearLayout>
+
+
 </LinearLayout>
