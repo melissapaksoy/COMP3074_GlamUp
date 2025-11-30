@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF1493">
+
+
+
+    <!-- SEARCH BAR -->
+    <EditText
+        android:id="@+id/edtSearchExplore"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Search location or service"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:background="@drawable/bg_white_card"
+        android:padding="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- FILTER CHIPS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:gravity="center"
+        android:layout_marginBottom="10dp">
+
+        <!-- SERVICE -->
+        <LinearLayout
+            android:id="@+id/chipService"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_white_chip"
+            android:padding="10dp"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service"
+                android:textStyle="bold"
+                android:textColor="#FF1493" />
+        </LinearLayout>
+
+        <!-- PRICE -->
+        <LinearLayout
+            android:id="@+id/chipPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_white_chip"
+            android:padding="10dp"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:textStyle="bold"
+                android:textColor="#FF1493" />
+        </LinearLayout>
+
+        <!-- RATINGS -->
+        <LinearLayout
+            android:id="@+id/chipRating"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_white_chip"
+            android:padding="10dp"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ratings"
+                android:textStyle="bold"
+                android:textColor="#FF1493" />
+        </LinearLayout>
+
+        <!-- AVAILABILITY -->
+        <LinearLayout
+            android:id="@+id/chipAvailability"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_white_chip"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Availability"
+                android:textStyle="bold"
+                android:textColor="#FF1493" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <!-- MAP -->
+    <ImageView
+        android:id="@+id/imgMap"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:src="@drawable/mock_map"
+        android:scaleType="centerCrop"
+        android:background="@drawable/bg_white_card"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- TOP PICKS HEADER -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Today's GlamUp Top Picks"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:textStyle="bold" />
+
+    <!-- RESULTS CONTAINER -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/cardsContainerExplore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- SARAH -->
+            <include layout="@layout/card_sarah"/>
+
+            <!-- MARIA -->
+            <include layout="@layout/card_maria"/>
+
+            <!-- EMILY -->
+            <include layout="@layout/card_emily_chen"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- FOOTER NAV -->
+    <include
+        android:id="@+id/footerExplore"
+        layout="@layout/footer_client" />
+
+</LinearLayout>
