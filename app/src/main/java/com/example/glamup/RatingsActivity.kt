@@ -12,7 +12,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 class RatingsActivity : AppCompatActivity() {
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-
     private val auth by lazy { FirebaseAuth.getInstance() }
 
     private lateinit var reviewsContainer: LinearLayout
@@ -20,6 +19,9 @@ class RatingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ratings)
+
+        // ⭐ REQUIRED FOR FOOTER NAVIGATION (fixes crash)
+        setupFooterNavigation(this)
 
         // BACK BUTTON
         val backButton = findViewById<FrameLayout>(R.id.backButtonContainer)
@@ -48,7 +50,7 @@ class RatingsActivity : AppCompatActivity() {
 
             val user = auth.currentUser
             val review = Review(
-                beautyProId = "maria_rodriguez",   // this screen is for Maria
+                beautyProId = "maria_rodriguez",
                 userId = user?.uid ?: "guest",
                 userName = user?.displayName ?: "Guest",
                 rating = rating,
@@ -64,16 +66,14 @@ class RatingsActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    // Show short summary of what user submitted
+                    // Show summary
                     tvYourReview.visibility = View.VISIBLE
-                    tvYourReview.text =
-                        "You rated ${review.rating.toInt()}★: ${review.text}"
+                    tvYourReview.text = "You rated ${review.rating.toInt()}★: ${review.text}"
 
                     // Reset inputs
                     ratingBar.rating = 0f
                     reviewInput.text.clear()
 
-                    // Refresh list from Firestore so new review appears
                     loadReviews()
                 }
                 .addOnFailureListener {
@@ -85,7 +85,6 @@ class RatingsActivity : AppCompatActivity() {
                 }
         }
 
-        // Load existing reviews when screen opens
         loadReviews()
     }
 
@@ -134,5 +133,4 @@ class RatingsActivity : AppCompatActivity() {
                 Toast.makeText(this, "Failed to load reviews.", Toast.LENGTH_SHORT).show()
             }
     }
-
 }
