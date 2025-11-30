@@ -8,4 +8,7 @@
     <string name="prompt_price">Price</string>
     <string name="prompt_rating">Rating</string>
     <string name="prompt_availability">Availability</string>
+    <string name="nail_artist_manicurist"><![CDATA[Nail Artist & Manicurist]]></string>
+    <string name="makeup_artist_brow"><![CDATA[Makeup Artist & Brow]]></string>
+    <string name="hair_stylist_colorist"><![CDATA[Hair Stylist & Colorist]]></string>
 </resources>
