@@ -780,4 +780,8 @@
         </LinearLayout>
     </ScrollView>
 
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer_client" />
+
 </LinearLayout>

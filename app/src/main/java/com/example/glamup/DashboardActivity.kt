@@ -18,6 +18,8 @@ class DashboardActivity : AppCompatActivity() {
         val backButton = findViewById<FrameLayout>(R.id.backButtonContainer)
         backButton.setOnClickListener { finish() }
 
+        setupFooterNavigation(this)
+
         // Quick action cards
         val cardManageServices = findViewById<LinearLayout>(R.id.cardManageServices)
         val cardSetAvailability = findViewById<LinearLayout>(R.id.cardSetAvailability)

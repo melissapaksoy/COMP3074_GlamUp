@@ -103,6 +103,12 @@ class SignUpActivity : AppCompatActivity() {
                     db.collection("users").document(uid).set(userData)
                         .addOnSuccessListener {
                             Toast.makeText(this, "Account created!", Toast.LENGTH_SHORT).show()
+                            // Save role locally for footer navigation
+                            val prefs = getSharedPreferences("user_prefs", MODE_PRIVATE)
+                            prefs.edit()
+                                .putString("user_role", role)  // "CLIENT" or "BEAUTYPRO"
+                                .apply()
+
                             navigateToDashboard(role)
                         }
                         .addOnFailureListener {
