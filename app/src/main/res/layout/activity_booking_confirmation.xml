@@ -1,97 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
+    android:orientation="vertical"
     android:background="#FFF7FB">
 
-    <LinearLayout
+    <!-- SCROLLABLE CONTENT -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
-        <!-- Success Icon Section -->
-        <LinearLayout
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:gravity="center"
-            android:background="@drawable/confirmation_circle"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="✔"
-                android:textSize="48sp"
-                android:textColor="#D81B60"
-                android:textStyle="bold"/>
-        </LinearLayout>
-
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Booking Confirmed!"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="#D81B60"
-            android:layout_marginBottom="12dp"/>
-
-        <!-- Card Container -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp"
-            android:elevation="6dp"
-            android:layout_margin="12dp"
-            android:gravity="center"
-            android:backgroundTint="#FFFFFF"
-            android:clipToOutline="true"
-            android:background="@drawable/rounded_card">
+            android:padding="24dp"
+            android:gravity="center_horizontal">
 
+            <!-- Success Icon Section -->
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:gravity="center"
+                android:background="@drawable/confirmation_circle"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✔"
+                    android:textSize="48sp"
+                    android:textColor="#D81B60"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Title -->
             <TextView
-                android:id="@+id/txtService"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Service: ✨ Nail Art Add-on"
-                android:textSize="16sp"
-                android:textColor="#444"
-                android:layout_marginBottom="6dp"/>
+                android:text="Booking Confirmed!"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#D81B60"
+                android:layout_marginBottom="12dp" />
 
-            <TextView
-                android:id="@+id/txtDate"
-                android:layout_width="wrap_content"
+            <!-- Card Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Date: 22/11/2025"
-                android:textSize="16sp"
-                android:textColor="#444"
-                android:layout_marginBottom="6dp"/>
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:elevation="6dp"
+                android:layout_margin="12dp"
+                android:gravity="center"
+                android:backgroundTint="#FFFFFF"
+                android:clipToOutline="true"
+                android:background="@drawable/rounded_card">
 
-            <TextView
-                android:id="@+id/txtTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Time: 1:00 PM"
+                <TextView
+                    android:id="@+id/txtService"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Service: ✨ Nail Art Add-on"
+                    android:textSize="16sp"
+                    android:textColor="#444"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date: 22/11/2025"
+                    android:textSize="16sp"
+                    android:textColor="#444"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:id="@+id/txtTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time: 1:00 PM"
+                    android:textSize="16sp"
+                    android:textColor="#444" />
+            </LinearLayout>
+
+            <!-- Back Button -->
+            <Button
+                android:id="@+id/btnBackToHome"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Back to Home"
                 android:textSize="16sp"
-                android:textColor="#444"/>
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#D81B60"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp" />
+
         </LinearLayout>
+    </ScrollView>
 
-        <!-- Back Button -->
-        <Button
-            android:id="@+id/btnBackToHome"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Back to Home"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#D81B60"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="30dp"/>
+    <!-- ⭐ FIXED FOOTER -->
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer_client" />
 
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

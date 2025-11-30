@@ -17,6 +17,9 @@ class BookingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking)
 
+        // ⭐ Enable footer navigation
+        setupFooterNavigation(this)
+
         // Spinner (Services)
         val spinner: Spinner = findViewById(R.id.spinnerService)
         val services = listOf(
@@ -50,20 +53,17 @@ class BookingActivity : AppCompatActivity() {
                 day
             )
 
-            // 🔒 BLOCK ALL PAST DATES
             datePicker.datePicker.minDate = System.currentTimeMillis()
-
             datePicker.show()
         }
 
-
+        // Back Button
         val backButton = findViewById<ImageView>(R.id.btnBackBooking)
         backButton.setOnClickListener {
-            finish()   // instantly returns to ProfileActivity
+            finish()
         }
 
-
-        // Time slot TextViews
+        // Time Slots
         val tvTime1: TextView = findViewById(R.id.tvTime1)
         val tvTime2: TextView = findViewById(R.id.tvTime2)
         val tvTime3: TextView = findViewById(R.id.tvTime3)
@@ -80,23 +80,25 @@ class BookingActivity : AppCompatActivity() {
                         )
                     )
                 }
-                // Highlight selected (you can swap this color for your own pink in colors.xml)
+
+                // Highlight selected
                 timeView.setBackgroundColor(
                     ContextCompat.getColor(
                         this,
-                        android.R.color.holo_purple
+                        android.R.color.holo_purple // Replace with your pink if needed
                     )
                 )
+
                 selectedTime = timeView.text.toString()
             }
         }
 
-        // Confirm Booking Button
+        // Confirm Booking
         val btnConfirm: Button = findViewById(R.id.btnConfirmBooking)
         btnConfirm.setOnClickListener {
-            val chosenService = spinner.selectedItem.toString()
 
-            btnConfirm.isEnabled = false // prevents double-tap
+            val chosenService = spinner.selectedItem.toString()
+            btnConfirm.isEnabled = false
 
             if (selectedDate == null || selectedTime == null) {
                 Toast.makeText(this, "Please select a date and time", Toast.LENGTH_SHORT).show()

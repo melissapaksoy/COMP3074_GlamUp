@@ -11,4 +11,6 @@
     <string name="nail_artist_manicurist"><![CDATA[Nail Artist & Manicurist]]></string>
     <string name="makeup_artist_brow"><![CDATA[Makeup Artist & Brow]]></string>
     <string name="hair_stylist_colorist"><![CDATA[Hair Stylist & Colorist]]></string>
+    <string name="default_web_client_id">dummy-value-123</string>
 </resources>
+

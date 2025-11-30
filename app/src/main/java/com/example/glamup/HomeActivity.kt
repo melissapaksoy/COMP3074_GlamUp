@@ -2,60 +2,162 @@ package com.example.glamup
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 class HomeActivity : AppCompatActivity() {
 
+    private data class Pro(
+        val name: String,
+        val role: String,
+        val price: Int,
+        val rating: Double,
+        val availableToday: Boolean,
+        val card: View
+    )
+
+    private lateinit var cardsContainer: LinearLayout
+    private lateinit var searchBox: EditText
+
+    // Spinners
+    private lateinit var spinnerService: Spinner
+    private lateinit var spinnerPrice: Spinner
+    private lateinit var spinnerRating: Spinner
+    private lateinit var spinnerAvailability: Spinner
+
+    private lateinit var pros: List<Pro>
+
+    // State
+    private var serviceFilter: String? = null
+    private var priceAsc: Boolean = true
+    private var minRatingMode: Int = 0
+    private var onlyAvailableToday: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        // ===== Views =====
-        val cardsContainer = findViewById<LinearLayout>(R.id.cardsContainer)
-        val searchBox = findViewById<EditText>(R.id.searchBox)
+        // ⭐ Activate footer navigation
+        setupFooterNavigation(this)
 
-        val spinnerService = findViewById<Spinner>(R.id.spinnerService)
-        val spinnerPrice = findViewById<Spinner>(R.id.spinnerPrice)
-        val spinnerRating = findViewById<Spinner>(R.id.spinnerRating)
-        val spinnerAvailability = findViewById<Spinner>(R.id.spinnerAvailability)
+        // ====== Views ======
+        cardsContainer = findViewById(R.id.cardsContainer)
+        searchBox = findViewById(R.id.searchBox)
 
-        // ===== Cards =====
-        val cardSarah = findViewById<LinearLayout>(R.id.card_sarah)
-        val cardMaria = findViewById<LinearLayout>(R.id.card_maria)
-        val cardEmily = findViewById<LinearLayout>(R.id.card_emily_chen)
+        spinnerService = findViewById(R.id.spinnerService)
+        spinnerPrice = findViewById(R.id.spinnerPrice)
+        spinnerRating = findViewById(R.id.spinnerRating)
+        spinnerAvailability = findViewById(R.id.spinnerAvailability)
 
-        // ===== Profile image click → Open Profile =====
-        findViewById<ImageView>(R.id.imgSarah).setOnClickListener {
-            openProfile("Sarah Johnson")
+        val cardSarah = findViewById<LinearLayout>(R.id.cardSarah)
+        val cardMaria = findViewById<LinearLayout>(R.id.cardMaria)
+        val cardEmily = findViewById<LinearLayout>(R.id.cardEmily)
+
+        // Profile images
+        findViewById<ImageView>(R.id.imgSarah).setOnClickListener { openProfile("Sarah Johnson") }
+        findViewById<ImageView>(R.id.imgMaria).setOnClickListener { openProfile("Maria Rodriguez") }
+        findViewById<ImageView>(R.id.imgEmily).setOnClickListener { openProfile("Emily Chen") }
+
+        // BOOK buttons → open profile
+        findViewById<Button>(R.id.btnBook1).setOnClickListener { openProfile("Sarah Johnson") }
+        findViewById<Button>(R.id.btnBook2).setOnClickListener { openProfile("Maria Rodriguez") }
+        findViewById<Button>(R.id.btnBook3).setOnClickListener { openProfile("Emily Chen") }
+
+        // Dummy data
+        pros = listOf(
+            Pro("Sarah Johnson", "hair", 85, 4.9, true, cardSarah),
+            Pro("Maria Rodriguez", "nails", 45, 4.8, false, cardMaria),
+            Pro("Emily Chen", "makeup", 95, 5.0, true, cardEmily)
+        )
+
+        // Search
+        searchBox.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                applyFilters()
+            }
+        })
+
+        // Spinners
+        spinnerService.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                serviceFilter = when (position) {
+                    1 -> "hair"
+                    2 -> "nails"
+                    3 -> "makeup"
+                    else -> null
+                }
+                applyFilters()
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {}
         }
 
-        findViewById<ImageView>(R.id.imgMaria).setOnClickListener {
-            openProfile("Maria Rodriguez")
+        spinnerPrice.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                priceAsc = (position == 0)
+                applyFilters()
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {}
         }
 
-        findViewById<ImageView>(R.id.imgEmily).setOnClickListener {
-            openProfile("Emily Chen")
+        spinnerRating.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                minRatingMode = position
+                applyFilters()
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {}
         }
 
-        // ===== Book buttons → Also open Profile first =====
-        findViewById<Button>(R.id.btnBook1).setOnClickListener {
-            openProfile("Sarah Johnson")
+        spinnerAvailability.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                onlyAvailableToday = (position == 1)
+                applyFilters()
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {}
         }
 
-        findViewById<Button>(R.id.btnBook2).setOnClickListener {
-            openProfile("Maria Rodriguez")
+        applyFilters()
+    }
+
+    private fun applyFilters() {
+        val q = searchBox.text?.toString()?.trim()?.lowercase().orEmpty()
+
+        var filtered = pros.filter { p ->
+            val searchMatch = q.isEmpty() || p.name.lowercase().contains(q) || p.role.lowercase().contains(q)
+            val serviceMatch = serviceFilter == null || p.role == serviceFilter
+
+            val ratingMatch = when (minRatingMode) {
+                1 -> p.rating >= 1.0 && p.rating < 2.0
+                2 -> p.rating >= 2.0 && p.rating < 3.0
+                3 -> p.rating >= 3.0 && p.rating < 4.0
+                4 -> p.rating >= 4.0 && p.rating < 5.0
+                5 -> p.rating >= 5.0
+                else -> true
+            }
+
+            val availabilityMatch = !onlyAvailableToday || p.availableToday
+
+            searchMatch && serviceMatch && ratingMatch && availabilityMatch
         }
 
-        findViewById<Button>(R.id.btnBook3).setOnClickListener {
-            openProfile("Emily Chen")
+        filtered = if (priceAsc) filtered.sortedBy { it.price } else filtered.sortedByDescending { it.price }
+
+        pros.forEach { it.card.visibility = View.GONE }
+        cardsContainer.removeAllViews()
+
+        filtered.forEach { p ->
+            p.card.visibility = View.VISIBLE
+            cardsContainer.addView(p.card)
         }
     }
 
-    // ===== Function to open Profile Activity =====
     private fun openProfile(name: String) {
-        val intent = Intent(this, ProfileActivity::class.java)
-        intent.putExtra("name", name)
-        startActivity(intent)
+        val i = Intent(this, ProfileActivity::class.java)
+        i.putExtra("profile_name", name)
+        startActivity(i)
     }
 }
