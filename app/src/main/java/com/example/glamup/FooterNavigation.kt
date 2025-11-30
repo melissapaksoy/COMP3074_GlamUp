@@ -3,8 +3,8 @@ package com.example.glamup
 import android.app.Activity
 import android.content.Intent
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
-import com.example.glamup.AdminActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -16,6 +16,7 @@ fun setupFooterNavigation(activity: Activity) {
 
     val home = activity.findViewById<View>(R.id.navHome)
     val notif = activity.findViewById<View>(R.id.navNotif)
+    val logoutBtn = activity.findViewById<Button>(R.id.btnLogoutFooter)
 
     fun navigateByRole(role: String) {
         val intent = when (role) {
@@ -30,7 +31,6 @@ fun setupFooterNavigation(activity: Activity) {
     fun resolveRoleAndNavigate() {
         val user = auth.currentUser
         if (user == null) {
-            // Not logged in → send to client home or login screen if you prefer
             navigateByRole("CLIENT")
             return
         }
@@ -38,18 +38,15 @@ fun setupFooterNavigation(activity: Activity) {
         val cachedRole = prefs.getString("user_role", null)
         val cachedUid  = prefs.getString("user_uid", null)
 
-        // ✅ Use cache ONLY if it belongs to the current logged-in user
         if (cachedRole != null && cachedUid == user.uid) {
             navigateByRole(cachedRole)
             return
         }
 
-        // ❌ Cache is missing or from a different user → fetch from Firestore
         db.collection("users").document(user.uid).get()
             .addOnSuccessListener { doc ->
                 val role = doc.getString("role") ?: "CLIENT"
 
-                // Update cache for this user
                 prefs.edit()
                     .putString("user_role", role)
                     .putString("user_uid", user.uid)
@@ -63,11 +60,28 @@ fun setupFooterNavigation(activity: Activity) {
             }
     }
 
+    // HOME BUTTON
     home?.setOnClickListener {
         resolveRoleAndNavigate()
     }
 
+    // NOTIFICATION BUTTON
     notif?.setOnClickListener {
         activity.startActivity(Intent(activity, NotificationActivity::class.java))
+    }
+
+    // LOGOUT BUTTON
+    logoutBtn?.setOnClickListener {
+        auth.signOut()
+
+        // Clear cached user role
+        prefs.edit().clear().apply()
+
+        // Send to LOGIN SCREEN
+        val intent = Intent(activity, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        activity.startActivity(intent)
+
+        Toast.makeText(activity, "Logged out", Toast.LENGTH_SHORT).show()
     }
 }
